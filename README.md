@@ -27,5 +27,76 @@ drop table B；（删除B表）  drop batadase A；（删除A数据库）
 进阶：
 修改Mysql数据库的登陆密码  mysqladmin -r root -p password 新密码
 文件方式创建数据表 （文件里的内容格式就是上面创建表的格式） mysql -D 库名 -h 主机名 -u root -p <.sql  （sql类型文件）
+将文件导入数据库：mysql -uroot -p密码 数据库名 <文件路径和名称.sql
+将数据导出：mysqldump -hlocalhost -uroot -p库名 >文件路径和名称
 接下来就是题目里用到的 MySQL与python建立联系
+import pymysql
+db=pymysql.connect(“localhost”，“root”，“密码”，“库名”)
+cursor=db.cursor()
+cursor.execute("drop table if exists 表名")
+sql='''create table 表名(.....
+
+      );'''
+cursor.execute(sql)
+db.close()
+#three
+将激活码存入redis，这个东西我觉得一点都不好用，也只是了解了几个基本语句。
+list（列表）
+>lpush mylist "1"  (新建一个名为mylist的列表，并在列表头部加入元素 1) (integer)1
+>rpush mylist "2"  (在列表右侧插入元素 2)
+>lpush mylist "0"  (在列表左侧插入元素 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,0 +1,1592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)https://www.linuxidc.com/Linux/2016-02/128127.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>30分钟带你快速入门MySQL教程_数据库技术_Linux公社-Linux系统门户网站</title>
+
+<link rel="icon" href="https://www.linuxidc.com/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://www.linuxidc.com/favicon.ico" type="image/x-icon">
+<meta name="description" content="这是一篇真正适合初学者的MySQL数据库入门文章，哪怕你从来没有接触过数据库，或者说你从来没有听说过有数据库这东西，请一定要相">
+<meta name="keywords" content="MySQL入门教程,MySQL教程,30分钟带你快速入门MySQL教程,数据库,Oracle,Oracle教程,MySQL,NoSQL,PostgreSQL,MySQL,MongoDB,Oracle数据库">
+<link rel="canonical" href="http://www.linuxidc.com/Linux/2016-02/128127.htm">
+<meta name="generator" content="Linux公社">
+<meta name="generator" content="Linux">
+<link rel="stylesheet" href="./mysql_files/style.css" type="text/css">
+<meta name="generator" content="专业的Linux网站">
+<script charset="utf-8" src="./mysql_files/s.js"></script><script type="text/javascript" src="./mysql_files/jquery.js"></script>
+<script type="text/javascript" src="./mysql_files/iwms.js"></script>
+<script type="text/javascript">iwms.urlPrefix="../../";</script>
+
+<script type="text/javascript" src="./mysql_files/show.js"></script>
+<style>html #hm_t_undefined .hm-t-go-top {position:fixed;right:2px;bottom:2px;z-index:99998;cursor:pointer;width:40px;height:37px!important;text-align:center;white-space:normal;font-size:14px;line-height:17px;padding-top:3px;color:#fff;background:#404040;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAAXCAYAAABH92JbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMjgwMTE3NDA3MjA2ODExODA4M0UyNDA4ODdDRTZBQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBQjc5RkRFNkI5ODMxMUUzQkZGNDhENEJFQjM2OTcyRiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBQjc5RkRFNUI5ODMxMUUzQkZGNDhENEJFQjM2OTcyRiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDI4MDExNzQwNzIwNjgxMTgwODNFMjQwODg3Q0U2QUIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDI4MDExNzQwNzIwNjgxMTgwODNFMjQwODg3Q0U2QUIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5HPYM5AAACC0lEQVR42uyZTSgEYRjH90NoqaVcpDblvKW2XOSkNh8H5Yac9sBBDqQokiJKSMpNTi5OPo6Ktsgu67JcUHIXWfK1u3b8Xx6Zxuzu+64dM83uv34zNfu8b8/8Z+d5P8YqSZLFJNLsRmyWvIRMKgVD4AhEwA3YAV0pzGwEqyAEwmAddIICHe7FqhnsdQM14FxKLj+ooFiGE2ykiD8GVbJ4I1ELAnTmasMODnAhpVcIFIMicMgRH6Z4IxnUAh4pP3Zu5TVpUOLXDJgWiB8wkEF9IK7IL07X05oUFLjpZ4JXQQOYYwfzafJcoDjVPqw43KE4lWtUTF+AQ8eBqQSsgTaO2E0apJ7URrdCDZOM62hQJfBzGmShOD+1+2XSiYaJ7utkkBsEgEewnYfauZUmzWmU6DuY0sEgLzgArgzbu6i992cu/1WclqXsa1iHIt0DYlnKP0b9fRZu5pWdZs7dWXqa7B80+s//oF5aMSjflGqBPq5BQnFtVv4UmGHjIPEH96PAZ6C5kVMwf6daPzbFKnqCqvx9Bk/yFjSBFTMvcL+1DerAmUA/p9Rm1+y7AHJdgnqwx9EHm1s0gKtc2CpR6gE00/ZHMm3RKxbJlf0kNb2BDrCk8hsbDdvBay5tuiUTGxL7waTs2iLw0YTR9BLZQRwDUVqwjuTS9q3VRB8C1OQUnM6UqdXX/IcADn0IMADs2AqDOPSutQAAAABJRU5ErkJggg==) no-repeat -42px center #666;*background-image:url(http://ecma.bdimg.com/holmes/t-popup-icons-png8.png);_position:absolute;_top:expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight||document.body.clientHeight)-this.offsetHeight-2));}</style></head>
+<body>
+<div class="topBar">
+	<div class="twidth">
+	
+	<div style="float:right">
+		<script type="text/javascript" src="./mysql_files/language.js"></script> <a id="StranLink" href="javascript:StranBody()" title="點擊以繁體中文方式浏覽">繁體</a>
+	</div>
+	
+	<div id="topUser">你好，游客 <a href="https://www.linuxidc.com/Linux/2016-02/128127.htm#" onclick="iwms.logPop()">登录</a>
+	<a href="https://www.linuxidc.com/memberreg.aspx" rel="nofollow">注册</a>
+	<a href="https://www.linuxidc.com/search.aspx" rel="nofollow">搜索</a>
+	</div>
+	</div>
+</div>
+<div class="twidth">
+<div id="sitehead">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<table width="100%">
+	<tbody><tr align="center"><td width="160">
+	<a href="http://www.linuxidc.com/"><img style="filter: chroma(color=#FFFFFF);" src="./mysql_files/logo.jpg" alt="Linux公社" width="155" height="53" border="0"></a>
+	</td><td>
+	<div align="center"><script type="text/javascript" src="./mysql_files/linux.js"></script><a href="http://www.magedu.com/kczx/linuxyw.html?linuxgongshe_banner" target="_blank"><img src="./mysql_files/mg.png" alt="" width="600" height="60"></a>
+</div>
+	</td>
+	</tr></tbody></table>
+</div>
+</div>
+<div id="navbar">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<a href="https://www.linuxidc.com/index.htm" class="first">首页</a><a href="https://www.linuxidc.com/it/">Linux新闻</a><a href="https://www.linuxidc.com/Linuxit/">Linux教程</a><a href="https://www.linuxidc.com/MySql/" class="thisclass">数据库技术</a><a href="https://www.linuxidc.com/RedLinux/">Linux编程</a><a href="https://www.linuxidc.com/Apache/">服务器应用</a><a href="https://www.linuxidc.com/Unix/">Linux安全</a><a href="https://www.linuxidc.com/download/">Linux下载</a><a href="https://www.linuxidc.com/Linuxrz/">Linux认证</a><a href="https://www.linuxidc.com/theme/">Linux主题</a><a href="https://www.linuxidc.com/Linuxwallpaper/">Linux壁纸</a><a href="https://www.linuxidc.com/linuxsoft/">Linux软件</a><a href="https://www.linuxidc.com/digi/">数码</a><a href="https://www.linuxidc.com/mobile/">手机</a><a href="https://www.linuxidc.com/diannao/">电脑</a>
+
+</div>
+</div>
+
+<div id="navsub">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<a href="https://www.linuxidc.com/index.htm">首页</a> → <a href="https://www.linuxidc.com/MySql/">数据库技术</a>
+</div>
+</div>
+<div class="linuxe1"><script type="text/javascript" src="./mysql_files/linuxe1.js"></script></div>
+<div class="linux1"><script type="text/javascript" src="./mysql_files/linux1.js"></script></div>
+<div class="linuxa"><script type="text/javascript" src="./mysql_files/linuxa.js"></script></div>
+<div class="linuxa1"><script type="text/javascript" src="./mysql_files/linuxa1.js"></script></div>
+<table id="middle" width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed">
+<tbody><tr valign="top"><td>
+
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<div class="moreR">
+			背景：<script type="text/javascript">WriteBg()</script><img src="./mysql_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#EDF0F5" alt="#EDF0F5" onclick="ContentBg(&quot;#EDF0F5&quot;)"> <img src="./mysql_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#FAFBE6" alt="#FAFBE6" onclick="ContentBg(&quot;#FAFBE6&quot;)"> <img src="./mysql_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#FFF2E2" alt="#FFF2E2" onclick="ContentBg(&quot;#FFF2E2&quot;)"> <img src="./mysql_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#FDE6E0" alt="#FDE6E0" onclick="ContentBg(&quot;#FDE6E0&quot;)"> <img src="./mysql_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#F3FFE1" alt="#F3FFE1" onclick="ContentBg(&quot;#F3FFE1&quot;)"> <img src="./mysql_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#DAFAF3" alt="#DAFAF3" onclick="ContentBg(&quot;#DAFAF3&quot;)"> <img src="./mysql_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#EAEAEF" alt="#EAEAEF" onclick="ContentBg(&quot;#EAEAEF&quot;)"> <img src="./mysql_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#FFF" alt="默认" onclick="ContentBg(&quot;&quot;)"> 
+		</div>
+		<span class="tt">阅读新闻</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm" id="bodyTd">
+		<div id="printBody" style="word-break:break-all;">
+			<div style="text-align:center"><h1 class="aTitle">30分钟带你快速入门MySQL教程</h1></div>
+			
+			<table width="97%" align="center">
+				<tbody><tr>
+				<td width="140">[日期：2016-02-03]</td>
+				<td align="center">来源：Linux社区&nbsp;
+				作者：xpleaf</td>
+				<td width="160" align="right">[字体：<a href="javascript:ContentSize(16)">大</a> <a href="javascript:ContentSize(0)">中</a> <a href="javascript:ContentSize(12)">小</a>]
+				</td></tr>
+			</tbody></table>
+<div id="li_all">
+<div id="li_1"><script type="text/javascript" src="./mysql_files/linux201.js"></script><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Linux公社内容页正中 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-5195587195407606" data-ad-slot="9714521574"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div id="li_2"><script type="text/javascript" src="./mysql_files/linux2.js"></script></div>
+</div>
+			<div id="content" style="overflow-x: hidden; word-break: break-all;"><p>这是一篇真正适合初学者的MySQL数据库入门文章，哪怕你从来没有接触过数据库，或者说你从来没有听说过有数据库这东西，请一定要相信我，我当时就是这么过来的。</p>
+<p>如果你刚开始接触MySQL数据库，或者你需要使用MySQL数据库来保存一些基本的数据，比如说，用户基本信息、学生基本信息表等，但却不知道何从下手，那么这篇文章就很适合你了，下面通过一个有趣的案例来带你熟悉MySQL的基本指令操作，希望你也能跟着操作，这样之后，相信你肯定就不会觉得很陌生了。</p>
+<p>本文力图思路清晰和简洁，虽然有点长，但文字都是非常通俗易懂的，真心希望可以帮助到大家！</p>
+<p><strong><span style="color: #1f497d;">本篇文章的索引如下：</span></strong></p>
+<p><strong><span style="color: #1f497d;">一、MySQL数据库的安装</span></strong></p>
+<p><span style="color: #1f497d;">1.Windows下的安装</span></p>
+<p><span style="color: #1f497d;">2.Linux下的安装</span></p>
+<p><span style="color: #1f497d;">3.MAC下的安装</span></p>
+<p><strong><span style="color: #1f497d;">二、开始使用MySQL数据库</span></strong></p>
+<p><span style="color: #1f497d;">0.简单理解MySQL数据库</span></p>
+<p><span style="color: #1f497d;">1.在命令行中进入MySQL数据库</span></p>
+<p><span style="color: #1f497d;">2.查看已有的数据库<br></span></p>
+<p><span style="color: #1f497d;">3.创建自己的数据库</span></p>
+<p><span style="color: #1f497d;">4.选择要操作的数据库</span></p>
+<p><span style="color: #1f497d;">5.在数据库中创建数据库表</span></p>
+<p><span style="color: #1f497d;">6.MySQL数据库、数据库与数据库表</span></p>
+<p><strong><span style="color: #1f497d;">三、操作数据库中的数据库表</span></strong></p>
+<p><span style="color: #1f497d;">1.向数据表中添加数据</span></p>
+<p><span style="color: #1f497d;">（1）关于列名称</span></p>
+<p><span style="color: #1f497d;">（2）关于数据类型</span></p>
+<p><span style="color: #1f497d;">（3）关于not null</span></p>
+<p><span style="color: #1f497d;">（4）关于primary key</span></p>
+<p><span style="color: #1f497d;">2.查询数据库表中的数据</span><span style="color: #1f497d;"><br></span></p>
+<p><span style="color: #1f497d;">（1）查询表中全部数据</span></p>
+<p><span style="color: #1f497d;">（2）查询表中特定列的数据</span></p>
+<p><span style="color: #1f497d;">（3）按特定条件查询表中的数据</span></p>
+<p><span style="color: #1f497d;">3.修改数据库表中的数据</span><span style="color: #1f497d;"><br></span></p>
+<p><span style="color: #1f497d;">4.删除数据库表中的数据</span></p>
+<p><span style="color: #1f497d;">5.修改数据库表</span></p>
+<p><span style="color: #1f497d;">（1）修改数据库表中的列</span></p>
+<p><span style="color: #1f497d;">（2）删除数据库表的列</span></p>
+<p><span style="color: #1f497d;">（3）重命名数据库表</span></p>
+<p><span style="color: #1f497d;">（4）删除数据库表</span></p>
+<p><span style="color: #1f497d;">6.删除数据库</span><span style="color: #1f497d;"><br></span></p>
+<p><strong><span style="color: #1f497d;">四、进阶操作</span></strong></p>
+<p><span style="color: #1f497d;">1.修改MySQL数据库的登陆密码</span></p>
+<p><span style="color: #1f497d;">2.在登陆MySQL数据库时指定要操作的数据库</span></p>
+<p><span style="color: #1f497d;">3.通过文件的方式创建数据库表</span></p>
+<p style="white-space: normal;"><span style="background-color: #548dd4;"><strong><span style="background-color: #548dd4;">一、MySQL数据库的安装</span></strong></span></p>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">1.Windows下的安装</span></strong></p>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">2.Linux下的安装</span></strong></p>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">3.MAC下的安装</span></strong></p>
+<p style="white-space: normal;"><span>关于MySQL数据库的安装，这里就不给出了，我想在网上百度一番，肯定能找到很多详细的安装步骤的，我这里再给出来，显然就会有些多余了，所以还是自己动手去找一下吧，相信不会很难的。</span></p>
+<p style="white-space: normal;"><span>但无论是Windows下还是Linux，又或者是MAC book上，对于MySQL数据库的操作指令肯定都是一样的，所以如果这里你要学习MySQL数据库的基本指令操作，用哪种平台都是没有关系的，下面的操作，为了方便，我是直接在Linux下面操作（MAC book买不起，Windows的DOS复制操作伤不起）。<br></span></p>
+<p style="white-space: normal;"><span style="background-color: #548dd4;"><strong><span style="background-color: #548dd4;">二、开始使用MySQL数据库</span></strong></span></p>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">0.简单理解MySQL数据库</span></strong></p>
+<p style="white-space: normal;"><span>好了，终于可以开始学习MySQL数据库的基本操作了，但在开始之前，如果你以前对MySQL或者对数据库没有任何一点概念的话，你还是得知道一些东西。现阶段不需要太多的理论知识，你只需要知道，MySQL数据库可以帮你存储类似下面的一张二维关系表：<br></span></p>
+<p style="white-space: normal;"><span><a href="./mysql_files/160203160252372.jpg" target="_blank"><img title="学生信息表" src="./mysql_files/160203160252372.jpg" alt="wKioL1ZHB5iCMRJPAABpI9q6jKY318.jpg"></a></span></p>
+<p style="white-space: normal;"><span>是的，我想你对这张表已经再熟悉不过了，在Excel上你一定见过用它来存储类似的学生信息表，我们下面通过相关的操作，就要在MySQL数据库中存储上面这张表的内容。（当然MySQL数据库的作用可不是只能存储这样一张表了，这些就要看大家以后的需求了。）</span><strong><span style="color: #1f497d;">&nbsp;</span></strong></p>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">1.在命令行中进入MySQL数据库</span></strong></p>
+<p style="white-space: normal;"><span>我们的操作都是在命令行中进行的，所以保证你可以进入命令行界面（对于Windows，开始菜单--运行--输入cmd，即可调出命令行界面，Linux和MAC的就不用多说了哈。）<br></span></p>
+<p style="white-space: normal;"><span>在命令行中进行如下的命令操作就可以进入到MySQL数据库中：</span></p>
+<div>
+<div id="highlighter_262441" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">xpleaf@xpleaf-machine:~$&nbsp;mysql&nbsp;-h&nbsp;localhost&nbsp;-u&nbsp;root&nbsp;-p </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Enter&nbsp;password:</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p style="white-space: normal;"><span>根据提示，输入密码后就可以进去了，关于密码，你在安装的时候应该是有指定的，这里就不多说了，密码输入正确后，你应该就可以看到下面的界面（前提是你已经正确地安装了MySQL）：</span></p>
+<div>
+<div id="highlighter_589131" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">Welcome&nbsp;to&nbsp;the&nbsp;MySQL&nbsp;monitor.&nbsp; Commands&nbsp;end&nbsp;with&nbsp;;&nbsp;or&nbsp;\g. </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Your&nbsp;MySQL&nbsp;connection&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">is&nbsp;37 </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">Server&nbsp;version:&nbsp;5.5.44-0<a href="http://www.linuxidc.com/topicnews.aspx?tid=2" target="_blank" title="Ubuntu">Ubuntu</a>0.12.04.1&nbsp;(Ubuntu) </code></div>
+<div class="line number4 index3 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="bash plain">Copyright&nbsp;(c)&nbsp;2000,&nbsp;2015,&nbsp;<a href="http://www.linuxidc.com/topicnews.aspx?tid=12" target="_blank" title="Oracle">Oracle</a>&nbsp;and</code><code class="bash plain">/or</code>&nbsp;<code class="bash plain">its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved. </code></div>
+<div class="line number6 index5 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number7 index6 alt2"><code class="bash plain">Oracle&nbsp;is&nbsp;a&nbsp;registered&nbsp;trademark&nbsp;of&nbsp;Oracle&nbsp;Corporation&nbsp;and</code><code class="bash plain">/or</code>&nbsp;<code class="bash plain">its </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">affiliates.&nbsp;Other&nbsp;names&nbsp;may&nbsp;be&nbsp;trademarks&nbsp;of&nbsp;their&nbsp;respective </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">owners. </code></div>
+<div class="line number10 index9 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="bash plain">Type&nbsp;</code><code class="bash string">'help;'</code>&nbsp;<code class="bash plain">or&nbsp;</code><code class="bash string">'\h'</code>&nbsp;<code class="bash keyword">for</code>&nbsp;<code class="bash plain">help.&nbsp;Type&nbsp;</code><code class="bash string">'\c'</code>&nbsp;<code class="bash plain">to&nbsp;</code><code class="bash functions">clear</code>&nbsp;<code class="bash plain">the&nbsp;current&nbsp;input&nbsp;statement. </code></div>
+<div class="line number12 index11 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number13 index12 alt2"><code class="bash plain">mysql&gt;</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p style="white-space: normal;"><span>所以根据上面的操作，我们来总结一下进入MySQL数据库的命令的基本语法：</span></p>
+<p style="white-space: normal;"><span style="color: #00b0f0;">mysql -h 主机名 -u 用户名 -p</span><span><br></span></p>
+<p style="white-space: normal;"><span>基本的解释如下：</span></p>
+<p style="white-space: normal;"><span><span>◆</span>-h：后面接的是主机名，表示你要连接到哪台主机的MySQL数据库。</span></p>
+<p style="white-space: normal;"><span><span>◆</span>-u：后面接的是用户名，MySQL默认的就是root。</span></p>
+<p style="white-space: normal;"><span><span>◆</span>-p：指定需要使用密码登陆MySQL数据库，如果密码为空，该参数可以省略。</span></p>
+<p style="white-space: normal;"><span>详细的解释如下：</span></p>
+<p style="white-space: normal;"><span>前面我们在-h后面填写了localhost，表示的是要登陆到当前主机的MySQL数据库，在这种情况下，-h参数以及localhost完全可以省略，也就是说，使用下面的命令也是可以登陆到本机的MySQL数据库的：</span></p>
+<p style="white-space: normal;"><span style="color: #00b0f0;">mysql -u root -p</span></p>
+<p style="white-space: normal;"><span>当然，如果你真的要连接到远程主机的MySQL数据库的话，只需要在加上-h参数，再加上远程主机的主机名或者IP地址就可以了，类似如下：</span></p>
+<p style="white-space: normal;"><span style="color: #00b0f0;">mysql -h 202.116.96.96 -u root -p</span></p>
+<p style="white-space: normal;"><span>对于-p参数，其实我们也可以在p后面直接加上MySQL数据库的密码，也就是说，上面的操作也等价于下面：</span></p>
+<p style="white-space: normal;"><span style="color: #00b0f0;">mysql -u root -p123456</span></p>
+<p><span>&nbsp;这里，我的密码是123456，这样之后，按回车键，就可以直接登陆到MySQL数据库中去了。</span></p>
+<p><strong><span style="color: #1f497d;">2.查看已有的数据库</span></strong></p>
+<p><span>成功登陆到MySQL数据库中之后，我们首先就来看一下，MySQL数据库中有多少个数据库（你可以理解为，MySQL数据库是一个大仓库，然后这个大仓库下面有多个小的仓库，我们就在这些小仓库中存放我们的数据），我们进行如下的操作：</span></p>
+<div>
+<div id="highlighter_321751" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;show&nbsp;databases; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+--------------------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;Database&nbsp; &nbsp;| </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+--------------------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;information_schema&nbsp;| </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;manager_system&nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;mysql&nbsp; &nbsp; &nbsp; | </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;stu_info&nbsp; &nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">|&nbsp;xpleaf_server_data&nbsp;| </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">+--------------------+</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>这里可以看到，在我电脑的MySQL数据库上存了5个数据库，有些是默认的，有些是我自己创建的，当然因为我之前有修改过，所以你看到的可能会跟我的不一样。</span></p>
+<p><span>通过上面的操作，我们来总结一下查看MySQL数据库中存放了哪几个数据库的命令：<br></span></p>
+<p><span style="color: #00b0f0;">show databases;</span></p>
+<p><span>是的，就是这么简单，不过需要注意的是，databases这个单词后面是有个s的，然后最后面是有个分号";"的，这两点都需要注意，极容易输错。<br></span></p>
+<p><strong><span style="color: #1f497d;">3.创建自己的数据库</span></strong></p>
+<p><span>接下来我们就要创建一个属于我们自己的数据库来保存数据了，看下面的操作：<br></span></p>
+<div>
+<div id="highlighter_610288" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;create&nbsp;database&nbsp;students_info; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;1&nbsp;row&nbsp;affected&nbsp;(0.01&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>&nbsp; <span>这里我们创建了一个名为students_info的数据库，当看到有Query OK, 1 row affected (0.01 sec)时，就说明我们的数据库创建成功了！为了确认一下，我们使用上面第2点的命令来查看一下现在MySQL数据库中已经存在的数据库：</span></p>
+<div>
+<div id="highlighter_38339" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;show&nbsp;databases; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+--------------------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;Database&nbsp; &nbsp;| </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+--------------------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;information_schema&nbsp;| </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;manager_system&nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;mysql&nbsp; &nbsp; &nbsp; | </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;stu_info&nbsp; &nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">|&nbsp;students_info&nbsp; &nbsp; &nbsp; | </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">|&nbsp;xpleaf_server_data&nbsp;| </code></div>
+<div class="line number11 index10 alt2"><code class="bash plain">+--------------------+</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>&nbsp; <span>可以看到，我们刚刚创建的数据库已经成功保存在MySQL数据库中了！</span></p>
+<p><span>我们还是来总结一下创建一个数据库的命令语法：<br></span></p>
+<p><span style="color: #00b0f0;">create database 数据库名;</span></p>
+<p><span>也是比较简单的，但需要注意的是，database后面就没有"s"了，但记得数据库名后面也一定要加上分号";"。<br></span></p>
+<p><strong><span style="color: #1f497d;">4.选择要操作的数据库</span></strong></p>
+<p><span>在上面的6个数据库中，并不是每一个都是我们需要进行操作的，我们只需要对我们刚刚创建的数据库students_info进行操作就可以了，但是，如果要想操作这个数据库，首先你就要告诉MySQL数据库系统，接下来你要使用students_info这个数据库来进行相关的操作，如何告诉系统呢？看下面的操作：<br></span></p>
+<div>
+<div id="highlighter_979919" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;use&nbsp;students_info; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Database&nbsp;changed</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>&nbsp; &nbsp; <span>当成功选择要操作的数据库后，就会出现Database changed的字样。</span></p>
+<p><span>要选择一个数据库进行操作时，命令语法如下：<br></span></p>
+<p><span style="color: #00b0f0;">use 数据库名[;]</span></p>
+<p><span>&nbsp; &nbsp; &nbsp; &nbsp; 这时你应该注意到，分号";"是放在中括号[]里的，也就是说，加不加分号都是可以的，这意味着，你使用use students_info来进行数据库的选择也是可以的，但为了不容易混淆，建议还是加上去好些吧。<br></span></p>
+<p><strong><span style="color: #1f497d;">5.在数据库中创建数据库表</span></strong></p>
+<p><span>接下来我们就要创建一个数据库表了，那么什么是数据库表呢？就是类似前面我们说的学生信息表，为了方便大家查看，我还是直接把它放下来吧：</span><a href="./mysql_files/160203160252371.jpg" target="_blank"><img title="学生信息表" src="./mysql_files/160203160252371.jpg" alt="wKiom1ZHJLKyxsNSAABpI9q6jKY272.jpg"></a></p>
+<p><span>是的，我们就是想要创建一张这样的表，如何创建？看下面的操作：<br></span></p>
+<div>
+<div id="highlighter_531267" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;create&nbsp;table&nbsp;network3 </code></div>
+<div class="line number2 index1 alt1"><code class="bash spaces">&nbsp; &nbsp; </code><code class="bash plain">-&gt;&nbsp;( </code></div>
+<div class="line number3 index2 alt2"><code class="bash spaces">&nbsp; &nbsp; </code><code class="bash plain">-&gt;&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">char(10)&nbsp;not&nbsp;null&nbsp;primary&nbsp;key, </code></div>
+<div class="line number4 index3 alt1"><code class="bash spaces">&nbsp; &nbsp; </code><code class="bash plain">-&gt;&nbsp;name&nbsp;char(16)&nbsp;not&nbsp;null, </code></div>
+<div class="line number5 index4 alt2"><code class="bash spaces">&nbsp; &nbsp; </code><code class="bash plain">-&gt;&nbsp;sex&nbsp;char(6)&nbsp;not&nbsp;null, </code></div>
+<div class="line number6 index5 alt1"><code class="bash spaces">&nbsp; &nbsp; </code><code class="bash plain">-&gt;&nbsp;age&nbsp;int&nbsp;not&nbsp;null, </code></div>
+<div class="line number7 index6 alt2"><code class="bash spaces">&nbsp; &nbsp; </code><code class="bash plain">-&gt;&nbsp;address&nbsp;char(36)&nbsp;not&nbsp;null </code></div>
+<div class="line number8 index7 alt1"><code class="bash spaces">&nbsp; &nbsp; </code><code class="bash plain">-&gt;&nbsp;); </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">Query&nbsp;OK,&nbsp;0&nbsp;rows&nbsp;affected&nbsp;(0.05&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>&nbsp; &nbsp; <span>哇！看上去似乎有些复杂，好像很多都不知道是什么意思！不用担心，下面会作一一的解释，当然，这也是创建数据库表的基本语法了：</span></p>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px; color: #00b0f0;">create table 数据库表名(列声明);</span><span style="font-size: 14px;"><br></span></span></p>
+<p><span>把我上面的操作再跟基本语法对比，其实发现创建一张表并不难，复杂的可能只是列声明里面的内容了，下面再对上面的每一句列声明作一个详细的说明：<br></span></p>
+<table>
+<tbody>
+<tr>
+<td align="center" valign="middle" width="256"><strong><span>列声明语句</span></strong></td>
+<td align="center" valign="middle" width="435"><strong><span>解释说明</span></strong></td>
+</tr>
+<tr>
+<td align="left" valign="middle" width="256"><span>id char(10) not null primary key</span></td>
+<td align="left" valign="middle" width="435"><span>创建一列，名称为id；数据类型为char字符类型，字符的最大长度为10个字符；并且该列内容不允许为空；同时把这一列作为这张表的主键，用来区分表中不同行。</span></td>
+</tr>
+<tr>
+<td align="left" valign="middle" width="256"><span>name char(16) not null</span></td>
+<td align="left" valign="middle" width="435"><span>创建一列，名称为name；数据类型为char字符类型，字符的最大长度为16个字符；并且该列内容不允许为空。</span></td>
+</tr>
+<tr>
+<td align="left" valign="middle" width="256"><span>sex char(6) not null</span></td>
+<td align="left" valign="middle" width="435"><span>创建一列，名称为sex；数据类型为char字符类型，字符的最大长度为6个字符；并且该列内容不允许为空。</span></td>
+</tr>
+<tr>
+<td align="left" valign="middle" width="256"><span>age int not null</span></td>
+<td align="left" valign="middle" width="435"><span>创建一列，名称为age；数据类型为int整型；并且该列内容不允许为空。</span></td>
+</tr>
+<tr>
+<td align="left" valign="middle" width="256"><span>address char(36) not null</span></td>
+<td align="left" valign="middle" width="435"><span>创建一列，名称为sex；数据类型为char字符类型，字符的最大长度为36个字符；并且该列内容不允许为空。</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>其实上面这个表格中的解释已经是相当的详细了（如果觉得还是比较抽象的话，就直接对照着上面的那个学生信息表来看就是了，只是这里我们还没有为这个表添加任何数据），但是我还是要再说明几个地方。</span></p>
+<p><strong><em><span>（1）关于列名称</span></em></strong></p>
+<p><span>需要注意的是，每一列的名称必须是不相同的才行。<br></span></p>
+<p><strong><em><span>（2）关于数据类型</span></em></strong></p>
+<p><span>跟编程语言一样，MySQL数据库也有它自己的数据类型，比如上面出现的char、int等，当然MySQL数据库的数据类型还有很多，这里不可能一一作介绍，有需要作更多了解的，可以百度一下。<br></span></p>
+<p><strong><em><span>（3）关于not null</span></em></strong></p>
+<p><span>这个参数是非必须的，加上这个参数，表明这一列的数据必须不能为空，上面我们创建的这个表中，可以说每一列都是一个学生最基本的信息，所以应该要不为空才对，不然以后可能就会出现学生信息不全的情况，这可不好吧，所以这里我们还是加上not null参数。当然，如果以后我们需要添加新的一列时，比��添加一列tel列的，这时你可能就没有必要指定not null参数了，因为不一定每个学生都有手机号码呀！<br></span></p>
+<p><em><strong><span>（4）关于primary key</span></strong></em></p>
+<p><span>考虑一下，在学生信息表中，假如存放了很多学生的信息，像上面这个表中，可能会存在这样的两个学生，他们的name、sex、age、address都相同的，这很正常吧！所以呢，你就必须得有一个数据项是不同的，我们上面这个表就指定id数据项是必须不同相同的，也就是所谓的主键了。<br></span></p>
+<p>&nbsp;</p>
+<p><span>这样下来之后，你就可以根据自己的需求来创建一个自己的数据库表了，不过还是要注意语法的问题，哪里加逗号","，哪里加分号";"，这些都必须不能有错。</span></p>
+<p><span>我们上面就在students_info这个数据库中创建了一张名为network3的数据库表，创建完成之后，我们应该要检查一下刚刚这张表，看看有没有什么问题：<br></span></p>
+<div>
+<div id="highlighter_146924" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;describe&nbsp;network3; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+---------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;Field&nbsp; &nbsp;|&nbsp;Type&nbsp; &nbsp; &nbsp;|&nbsp;Null&nbsp;|&nbsp;Key&nbsp;|&nbsp;Default&nbsp;|&nbsp;Extra&nbsp;| </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+---------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp; &nbsp; &nbsp; <code class="bash plain">|&nbsp;char(10)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp;PRI&nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;name&nbsp; &nbsp; |&nbsp;char(16)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;sex&nbsp; &nbsp; &nbsp;|&nbsp;char(6)&nbsp; |&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;age&nbsp; &nbsp; &nbsp;|&nbsp;int(11)&nbsp; |&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">|&nbsp;address&nbsp;|&nbsp;char(36)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">+---------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number11 index10 alt2"><code class="bash plain">5&nbsp;rows&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>仔细看过之后，我们发现跟我们想要创建的类型是一样的，也就是说没有问题，当然，如果你发现哪里有问题了，肯定是你在创建时哪里不小心输错了，这时就要删除重新创建或者修改了（后面会有详细讲解）。</span></p>
+<p><span>我们又来总结一下上面这个命令的基本语法，它是用来查询数据库表的详细信息的（只包括表头，并不包含内容）：</span></p>
+<p><span style="color: #00b0f0;">describe 数据库表名;</span></p>
+<p><span>语法跟前面的是一样的，我们应该养成一个好习惯，那就是每次创建完成一个数据库表后，都使用这个命令来检查一下，看看所创建的数据库表跟你想要的是不是一样。</span></p>
+<p><strong><span style="color: #1f497d;">6.MySQL数据库、数据库与数据库表&nbsp; &nbsp; &nbsp; </span></strong></p>
+<p><span>好了，通过上面的操作，我们不仅仅学会了在MySQL数据库创建一个数据库，还学会了在新建数据库的中创建数据库表，我们来简单的理清一下这三者的关系吧：<br></span></p>
+<p><span>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00b0f0;"><strong>&nbsp;MySQL数据库：</strong></span>相当于是一个大仓库，里面有很多个小仓库；<br></span></p>
+<p><span><strong><span style="color: #00b0f0;">数据库：</span></strong>相当于是大仓库中的小仓库，里面有很多个小的容器；<br></span></p>
+<p><span><span style="color: #00b0f0;"><strong>数据库表：</strong></span>相当于是小仓库中的容器，我们就是在里面存储内容；<br></span></p>
+<p><span>那么我们也可以通过一个图来理清这三者的关系：<br></span></p>
+<p><span><a href="https://www.linuxidc.com/upload/2016_02/160203160252373.png" target="_blank"><img src="./mysql_files/16020316052395.png" alt="30分钟带你快速入门MySQL教程" align="center" width="705" vspace="5" style="cursor: pointer; display: block;"></a></span></p>
+<p><span>好了，我想当你看到这个图之后就会觉得非常清晰了！<br></span></p>
+<hr>
+<p style="white-space: normal;"><span style="background-color: #548dd4;"><strong><span style="background-color: #548dd4;">三、操作数据库中的数据库表</span></strong></span></p>
+<p style="white-space: normal;"><span>&nbsp;</span></p>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">1.向数据表中添加数据</span></strong></p>
+<p style="white-space: normal;"><span>前面创建了数据库表之后，注意里面是没有存储任何数据的，下面我们就往这个表中插入数据：<br></span></p>
+<div>
+<div id="highlighter_67949" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;insert&nbsp;into&nbsp;network3&nbsp;values(</code><code class="bash string">"3114006441"</code><code class="bash plain">,</code><code class="bash string">"xpleaf"</code><code class="bash plain">,</code><code class="bash string">"male"</code><code class="bash plain">,35,</code><code class="bash string">"QingYuan"</code><code class="bash plain">); </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;1&nbsp;row&nbsp;affected&nbsp;(0.01&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p style="white-space: normal;"><span>上面的操作，我就往数据库表中添加了一条数据，数据内容跟前面的学生信息表中的第一条是一模一样的，这里我们着重看一下向数据库表中插入数据的命令语法：</span></p>
+<p style="white-space: normal;"><span style="color: #00b0f0;">insert into 数据库表名 values(value值1,value值2,.......);</span></p>
+<p style="white-space: normal;"><span>因为我创建的表中是有6列的，所以values里也就有6个值了。这是一种向表中插入数据的方式，当然，你也可以指定向特定的列中插入数据，命令语法如下：<br></span></p>
+<p style="white-space: normal;"><span style="color: #00b0f0;">insert into 数据库表名 (列名1,列名2,...） values(value值1,value值2,...);</span></p>
+<p style="white-space: normal;"><span>也就是说，你可以只向数据库表中添加部分数据，当然前提是，你还要遵守not null的规则。<br></span></p>
+<p style="white-space: normal;"><span>我们下面再添加几条数据，为了操作的一致性，我们使用第一种方法添加数据：</span></p>
+<div>
+<div id="highlighter_729712" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;insert&nbsp;into&nbsp;network3&nbsp;values(</code><code class="bash string">"3114006442"</code><code class="bash plain">,</code><code class="bash string">"Jim"</code><code class="bash plain">,</code><code class="bash string">"male"</code><code class="bash plain">,38,</code><code class="bash string">"JiangMen"</code><code class="bash plain">); </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;1&nbsp;row&nbsp;affected&nbsp;(0.00&nbsp;sec) </code></div>
+<div class="line number3 index2 alt2"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="bash plain">mysql&gt;&nbsp;insert&nbsp;into&nbsp;network3&nbsp;values(</code><code class="bash string">"3114006443"</code><code class="bash plain">,</code><code class="bash string">"Pei"</code><code class="bash plain">,</code><code class="bash string">"male"</code><code class="bash plain">,41,</code><code class="bash string">"PuNing"</code><code class="bash plain">); </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">Query&nbsp;OK,&nbsp;1&nbsp;row&nbsp;affected&nbsp;(0.01&nbsp;sec) </code></div>
+<div class="line number6 index5 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number7 index6 alt2"><code class="bash plain">mysql&gt;&nbsp;insert&nbsp;into&nbsp;network3&nbsp;values(</code><code class="bash string">"3114006440"</code><code class="bash plain">,</code><code class="bash string">"Xuan"</code><code class="bash plain">,</code><code class="bash string">"male"</code><code class="bash plain">,36,</code><code class="bash string">"ShanWei"</code><code class="bash plain">); </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;1&nbsp;row&nbsp;affected&nbsp;(0.02&nbsp;sec) </code></div>
+<div class="line number9 index8 alt2"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="bash plain">mysql&gt;&nbsp;insert&nbsp;into&nbsp;network3&nbsp;values(</code><code class="bash string">"3214006336"</code><code class="bash plain">,</code><code class="bash string">"Ting"</code><code class="bash plain">,</code><code class="bash string">"female"</code><code class="bash plain">,30,</code><code class="bash string">"ChaoShan"</code><code class="bash plain">); </code></div>
+<div class="line number11 index10 alt2"><code class="bash plain">Query&nbsp;OK,&nbsp;1&nbsp;row&nbsp;affected&nbsp;(0.02&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p style="white-space: normal;">&nbsp;</p>
+<hr>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">&nbsp;</span></strong></p>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">2.查询数据库表中的数据</span></strong></p>
+<p style="white-space: normal;"><span>向表中插入数据之后，接下来我们当然是要查询表中的数据了。查询表中的数据有多种方法（其实都是一种方法），但无论哪种方法，基本的命令语法都是像下面这样：<br></span></p>
+<div>
+<div id="highlighter_150624" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash functions">select</code>&nbsp;<code class="bash plain">列名称&nbsp;from&nbsp;数据库表名&nbsp;[查询条件];</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p style="white-space: normal;"><span>命令的基本语法倒是有了，关键是要看一下如何使用。</span></p>
+<p style="white-space: normal;"><strong><em><span>（1）查询表中全部数据</span></em></strong></p>
+<p style="white-space: normal;"><span>操作如下：<br></span></p>
+<div>
+<div id="highlighter_422625" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;</code><code class="bash functions">select</code>&nbsp;<code class="bash plain">*&nbsp;from&nbsp;network3; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">|&nbsp;name&nbsp; &nbsp;|&nbsp;sex&nbsp; &nbsp; |&nbsp;age&nbsp;|&nbsp;address&nbsp; | </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;3114006440&nbsp;|&nbsp;Xuan&nbsp; &nbsp;|&nbsp;male&nbsp; &nbsp;|&nbsp; 36&nbsp;|&nbsp;ShanWei&nbsp; | </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;3114006441&nbsp;|&nbsp;xpleaf&nbsp;|&nbsp;male&nbsp; &nbsp;|&nbsp; 35&nbsp;|&nbsp;QingYuan&nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;3114006442&nbsp;|&nbsp;Jim&nbsp; &nbsp; |&nbsp;male&nbsp; &nbsp;|&nbsp; 38&nbsp;|&nbsp;JiangMen&nbsp;| </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;3114006443&nbsp;|&nbsp;Pei&nbsp; &nbsp; |&nbsp;male&nbsp; &nbsp;|&nbsp; 41&nbsp;|&nbsp;PuNing&nbsp; &nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">|&nbsp;3214006336&nbsp;|&nbsp;Ting&nbsp; &nbsp;|&nbsp;female&nbsp;|&nbsp; 30&nbsp;|&nbsp;ChaoShan&nbsp;| </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number11 index10 alt2"><code class="bash plain">5&nbsp;rows&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p style="white-space: normal;"><span>这里的"*"是一个通配符，它表示任意匹配，如果你学过基本的正则表达式，这应该比较好理解，所以"*"放在列的位置，表示的是要查询所有列的数据；我们是查询network3这张表中的全部列的数据。</span></p>
+<p style="white-space: normal;"><strong><em><span>（2）查询表中特定列的数据</span></em></strong></p>
+<p style="white-space: normal;"><span>操作如下：<br></span></p>
+<div>
+<div id="highlighter_689281" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;</code><code class="bash functions">select</code>&nbsp;<code class="bash functions">id</code><code class="bash plain">,name&nbsp;from&nbsp;network3; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+------------+--------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">|&nbsp;name&nbsp; &nbsp;| </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+------------+--------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;3114006440&nbsp;|&nbsp;Xuan&nbsp; &nbsp;| </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;3114006441&nbsp;|&nbsp;xpleaf&nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;3114006442&nbsp;|&nbsp;Jim&nbsp; &nbsp; | </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;3114006443&nbsp;|&nbsp;Pei&nbsp; &nbsp; | </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">|&nbsp;3214006336&nbsp;|&nbsp;Ting&nbsp; &nbsp;| </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">+------------+--------+ </code></div>
+<div class="line number11 index10 alt2"><code class="bash plain">5&nbsp;rows&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>这里我们只查询了表network3中两列的内容，如果还想查询其它列的，像上面的操作那样，在列名称的位置用逗号","隔开就可以了。</span></p>
+<p><strong><em><span>（3）按特定条件查询表中的数据</span></em></strong></p>
+<p><span>有时我们可能只想要得到某个人或者相同性别的数据，这时候我们就需要指定条件来进行查询了，基本的命令语法如下：</span></p>
+<p><span style="color: #00b0f0;">select 列名称 from 数据库表名 where 查询条件;</span></p>
+<p><span>看我下面的操作：<br></span></p>
+<div>
+<div id="highlighter_858347" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+<div class="line number14 index13 alt1">14</div>
+<div class="line number15 index14 alt2">15</div>
+<div class="line number16 index15 alt1">16</div>
+<div class="line number17 index16 alt2">17</div>
+<div class="line number18 index17 alt1">18</div>
+<div class="line number19 index18 alt2">19</div>
+<div class="line number20 index19 alt1">20</div>
+<div class="line number21 index20 alt2">21</div>
+<div class="line number22 index21 alt1">22</div>
+<div class="line number23 index22 alt2">23</div>
+<div class="line number24 index23 alt1">24</div>
+<div class="line number25 index24 alt2">25</div>
+<div class="line number26 index25 alt1">26</div>
+<div class="line number27 index26 alt2">27</div>
+<div class="line number28 index27 alt1">28</div>
+<div class="line number29 index28 alt2">29</div>
+<div class="line number30 index29 alt1">30</div>
+<div class="line number31 index30 alt2">31</div>
+<div class="line number32 index31 alt1">32</div>
+<div class="line number33 index32 alt2">33</div>
+<div class="line number34 index33 alt1">34</div>
+<div class="line number35 index34 alt2">35</div>
+<div class="line number36 index35 alt1">36</div>
+<div class="line number37 index36 alt2">37</div>
+<div class="line number38 index37 alt1">38</div>
+<div class="line number39 index38 alt2">39</div>
+<div class="line number40 index39 alt1">40</div>
+<div class="line number41 index40 alt2">41</div>
+<div class="line number42 index41 alt1">42</div>
+<div class="line number43 index42 alt2">43</div>
+<div class="line number44 index43 alt1">44</div>
+<div class="line number45 index44 alt2">45</div>
+<div class="line number46 index45 alt1">46</div>
+<div class="line number47 index46 alt2">47</div>
+<div class="line number48 index47 alt1">48</div>
+<div class="line number49 index48 alt2">49</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;</code><code class="bash functions">select</code>&nbsp;<code class="bash plain">*&nbsp;from&nbsp;network3&nbsp;where&nbsp;name=</code><code class="bash string">'xpleaf'</code><code class="bash plain">; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">|&nbsp;name&nbsp; &nbsp;|&nbsp;sex&nbsp; |&nbsp;age&nbsp;|&nbsp;address&nbsp; | </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;3114006441&nbsp;|&nbsp;xpleaf&nbsp;|&nbsp;male&nbsp;|&nbsp; 35&nbsp;|&nbsp;QingYuan&nbsp;| </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">1&nbsp;row&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.02&nbsp;sec) </code></div>
+<div class="line number8 index7 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="bash plain">mysql&gt;&nbsp;</code><code class="bash functions">select</code>&nbsp;<code class="bash plain">*&nbsp;from&nbsp;network3&nbsp;where&nbsp;sex=</code><code class="bash string">'female'</code><code class="bash plain">; </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">+------------+------+--------+-----+----------+ </code></div>
+<div class="line number11 index10 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">|&nbsp;name&nbsp;|&nbsp;sex&nbsp; &nbsp; |&nbsp;age&nbsp;|&nbsp;address&nbsp; | </code></div>
+<div class="line number12 index11 alt1"><code class="bash plain">+------------+------+--------+-----+----------+ </code></div>
+<div class="line number13 index12 alt2"><code class="bash plain">|&nbsp;3214006336&nbsp;|&nbsp;Ting&nbsp;|&nbsp;female&nbsp;|&nbsp; 30&nbsp;|&nbsp;ChaoShan&nbsp;| </code></div>
+<div class="line number14 index13 alt1"><code class="bash plain">+------------+------+--------+-----+----------+ </code></div>
+<div class="line number15 index14 alt2"><code class="bash plain">1&nbsp;row&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec) </code></div>
+<div class="line number16 index15 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="bash plain">mysql&gt;&nbsp;</code><code class="bash functions">select</code>&nbsp;<code class="bash plain">*&nbsp;from&nbsp;network3&nbsp;where&nbsp;sex=</code><code class="bash string">'male'</code>&nbsp;<code class="bash plain">and&nbsp;address=</code><code class="bash string">'QingYuan'</code><code class="bash plain">; </code></div>
+<div class="line number18 index17 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number19 index18 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">|&nbsp;name&nbsp; &nbsp;|&nbsp;sex&nbsp; |&nbsp;age&nbsp;|&nbsp;address&nbsp; | </code></div>
+<div class="line number20 index19 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number21 index20 alt2"><code class="bash plain">|&nbsp;3114006441&nbsp;|&nbsp;xpleaf&nbsp;|&nbsp;male&nbsp;|&nbsp; 35&nbsp;|&nbsp;QingYuan&nbsp;| </code></div>
+<div class="line number22 index21 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number23 index22 alt2"><code class="bash plain">1&nbsp;row&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec) </code></div>
+<div class="line number24 index23 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number25 index24 alt2"><code class="bash plain">mysql&gt;&nbsp;</code><code class="bash functions">select</code>&nbsp;<code class="bash plain">*&nbsp;from&nbsp;network3&nbsp;where&nbsp;age&nbsp;&gt;&nbsp;40; </code></div>
+<div class="line number26 index25 alt1"><code class="bash plain">+------------+------+------+-----+---------+ </code></div>
+<div class="line number27 index26 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">|&nbsp;name&nbsp;|&nbsp;sex&nbsp; |&nbsp;age&nbsp;|&nbsp;address&nbsp;| </code></div>
+<div class="line number28 index27 alt1"><code class="bash plain">+------------+------+------+-----+---------+ </code></div>
+<div class="line number29 index28 alt2"><code class="bash plain">|&nbsp;3114006443&nbsp;|&nbsp;Pei&nbsp; |&nbsp;male&nbsp;|&nbsp; 41&nbsp;|&nbsp;PuNing&nbsp; | </code></div>
+<div class="line number30 index29 alt1"><code class="bash plain">+------------+------+------+-----+---------+ </code></div>
+<div class="line number31 index30 alt2"><code class="bash plain">1&nbsp;row&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec) </code></div>
+<div class="line number32 index31 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number33 index32 alt2"><code class="bash plain">mysql&gt;&nbsp;</code><code class="bash functions">select</code>&nbsp;<code class="bash plain">*&nbsp;from&nbsp;network3&nbsp;where&nbsp;age&nbsp;&lt;&nbsp;40&nbsp;and&nbsp;age&nbsp;&gt;=&nbsp;31; </code></div>
+<div class="line number34 index33 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number35 index34 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">|&nbsp;name&nbsp; &nbsp;|&nbsp;sex&nbsp; |&nbsp;age&nbsp;|&nbsp;address&nbsp; | </code></div>
+<div class="line number36 index35 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number37 index36 alt2"><code class="bash plain">|&nbsp;3114006440&nbsp;|&nbsp;Xuan&nbsp; &nbsp;|&nbsp;male&nbsp;|&nbsp; 36&nbsp;|&nbsp;ShanWei&nbsp; | </code></div>
+<div class="line number38 index37 alt1"><code class="bash plain">|&nbsp;3114006441&nbsp;|&nbsp;xpleaf&nbsp;|&nbsp;male&nbsp;|&nbsp; 35&nbsp;|&nbsp;QingYuan&nbsp;| </code></div>
+<div class="line number39 index38 alt2"><code class="bash plain">|&nbsp;3114006442&nbsp;|&nbsp;Jim&nbsp; &nbsp; |&nbsp;male&nbsp;|&nbsp; 38&nbsp;|&nbsp;JiangMen&nbsp;| </code></div>
+<div class="line number40 index39 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number41 index40 alt2"><code class="bash plain">3&nbsp;rows&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.01&nbsp;sec) </code></div>
+<div class="line number42 index41 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number43 index42 alt2"><code class="bash plain">mysql&gt;&nbsp;</code><code class="bash functions">select</code>&nbsp;<code class="bash plain">*&nbsp;from&nbsp;network3&nbsp;where&nbsp;name&nbsp;like&nbsp;</code><code class="bash string">"%leaf"</code><code class="bash plain">; </code></div>
+<div class="line number44 index43 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number45 index44 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">|&nbsp;name&nbsp; &nbsp;|&nbsp;sex&nbsp; |&nbsp;age&nbsp;|&nbsp;address&nbsp; | </code></div>
+<div class="line number46 index45 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number47 index46 alt2"><code class="bash plain">|&nbsp;3114006441&nbsp;|&nbsp;xpleaf&nbsp;|&nbsp;male&nbsp;|&nbsp; 35&nbsp;|&nbsp;QingYuan&nbsp;| </code></div>
+<div class="line number48 index47 alt1"><code class="bash plain">+------------+--------+------+-----+----------+ </code></div>
+<div class="line number49 index48 alt2"><code class="bash plain">1&nbsp;row&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>&nbsp; <span>我想其它什么的也不用多说了，特定条件其实就类似于"where 列名称='值'"这样的格式，跟着操作一遍，相信你就很容易理解，当然如果你想知道更详细的特定条件的相关语法，可以百度一下。</span></p>
+<hr>
+<p><strong><span style="color: #1f497d;">&nbsp;</span></strong></p>
+<p><strong><span style="color: #1f497d;">3.修改数据库表中的数据</span></strong></p>
+<p><span>数据不可能永远都不会变的，总有发生变化的时候，因此，有时我们需要对表中的数据作一些修改，或者说就是更新表中的数据，比如说年龄、地址等，可以先看下面的操作：<br></span></p>
+<p><span>在更改之前，我们还是先看一下原来表中的数据：<br></span></p>
+<div>
+<div id="highlighter_216980" class="syntaxhighlighter  as3 ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="as3 plain">mysql&gt;&nbsp;select&nbsp;*&nbsp;from&nbsp;network3; </code></div>
+<div class="line number2 index1 alt1"><code class="as3 plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number3 index2 alt2"><code class="as3 plain">|&nbsp;id&nbsp;|&nbsp;name&nbsp; &nbsp;|&nbsp;sex&nbsp; &nbsp; |&nbsp;age&nbsp;|&nbsp;address&nbsp; | </code></div>
+<div class="line number4 index3 alt1"><code class="as3 plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number5 index4 alt2"><code class="as3 plain">|&nbsp;</code><code class="as3 value">3114006440</code>&nbsp;<code class="as3 plain">|&nbsp;Xuan&nbsp; &nbsp;|&nbsp;male&nbsp; &nbsp;|&nbsp; </code><code class="as3 value">36</code>&nbsp;<code class="as3 plain">|&nbsp;ShanWei&nbsp; | </code></div>
+<div class="line number6 index5 alt1"><code class="as3 plain">|&nbsp;</code><code class="as3 value">3114006441</code>&nbsp;<code class="as3 plain">|&nbsp;xpleaf&nbsp;|&nbsp;male&nbsp; &nbsp;|&nbsp; </code><code class="as3 value">35</code>&nbsp;<code class="as3 plain">|&nbsp;QingYuan&nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="as3 plain">|&nbsp;</code><code class="as3 value">3114006442</code>&nbsp;<code class="as3 plain">|&nbsp;Jim&nbsp; &nbsp; |&nbsp;male&nbsp; &nbsp;|&nbsp; </code><code class="as3 value">38</code>&nbsp;<code class="as3 plain">|&nbsp;JiangMen&nbsp;| </code></div>
+<div class="line number8 index7 alt1"><code class="as3 plain">|&nbsp;</code><code class="as3 value">3114006443</code>&nbsp;<code class="as3 plain">|&nbsp;Pei&nbsp; &nbsp; |&nbsp;male&nbsp; &nbsp;|&nbsp; </code><code class="as3 value">41</code>&nbsp;<code class="as3 plain">|&nbsp;PuNing&nbsp; &nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="as3 plain">|&nbsp;</code><code class="as3 value">3214006336</code>&nbsp;<code class="as3 plain">|&nbsp;Ting&nbsp; &nbsp;|&nbsp;female&nbsp;|&nbsp; </code><code class="as3 value">30</code>&nbsp;<code class="as3 plain">|&nbsp;ChaoShan&nbsp;| </code></div>
+<div class="line number10 index9 alt1"><code class="as3 plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number11 index10 alt2"><code class="as3 value">5</code>&nbsp;<code class="as3 plain">rows&nbsp;</code><code class="as3 keyword">in</code>&nbsp;<code class="as3 keyword">set</code>&nbsp;<code class="as3 plain">(</code><code class="as3 value">0.00</code>&nbsp;<code class="as3 plain">sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>下面开始做一些修改（更新）：</span></p>
+<div>
+<div id="highlighter_589018" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+<div class="line number14 index13 alt1">14</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash comments">#将name为"xpleaf"的address修改为"YuanTan" </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">mysql&gt;&nbsp;update&nbsp;network3&nbsp;</code><code class="bash functions">set</code>&nbsp;<code class="bash plain">address=</code><code class="bash string">"YuanTan"</code>&nbsp;<code class="bash plain">where&nbsp;name=</code><code class="bash string">'xpleaf'</code><code class="bash plain">; </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">Query&nbsp;OK,&nbsp;1&nbsp;row&nbsp;affected&nbsp;(0.01&nbsp;sec) </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">Rows&nbsp;matched:&nbsp;1&nbsp; Changed:&nbsp;1&nbsp; Warnings:&nbsp;0 </code></div>
+<div class="line number5 index4 alt2"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number6 index5 alt1"><code class="bash comments">#将id为"3214006336"的name修改为"Hui" </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">mysql&gt;&nbsp;update&nbsp;network3&nbsp;</code><code class="bash functions">set</code>&nbsp;<code class="bash plain">name=</code><code class="bash string">"Hui"</code>&nbsp;<code class="bash plain">where&nbsp;</code><code class="bash functions">id</code><code class="bash plain">=</code><code class="bash string">'3214006336'</code><code class="bash plain">; </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;1&nbsp;row&nbsp;affected&nbsp;(0.00&nbsp;sec) </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">Rows&nbsp;matched:&nbsp;1&nbsp; Changed:&nbsp;1&nbsp; Warnings:&nbsp;0 </code></div>
+<div class="line number10 index9 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="bash comments">#将所有人的age加1 </code></div>
+<div class="line number12 index11 alt1"><code class="bash plain">mysql&gt;&nbsp;update&nbsp;network3&nbsp;</code><code class="bash functions">set</code>&nbsp;<code class="bash plain">age=age+1; </code></div>
+<div class="line number13 index12 alt2"><code class="bash plain">Query&nbsp;OK,&nbsp;5&nbsp;rows&nbsp;affected&nbsp;(0.01&nbsp;sec) </code></div>
+<div class="line number14 index13 alt1"><code class="bash plain">Rows&nbsp;matched:&nbsp;5&nbsp; Changed:&nbsp;5&nbsp; Warnings:&nbsp;0</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>我们再来查看一下进行数据更新之后的表：</span></p>
+<div>
+<div id="highlighter_301387" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;</code><code class="bash functions">select</code>&nbsp;<code class="bash plain">*&nbsp;from&nbsp;network3; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">|&nbsp;name&nbsp; &nbsp;|&nbsp;sex&nbsp; &nbsp; |&nbsp;age&nbsp;|&nbsp;address&nbsp; | </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;3114006440&nbsp;|&nbsp;Xuan&nbsp; &nbsp;|&nbsp;male&nbsp; &nbsp;|&nbsp; 37&nbsp;|&nbsp;ShanWei&nbsp; | </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;3114006441&nbsp;|&nbsp;xpleaf&nbsp;|&nbsp;male&nbsp; &nbsp;|&nbsp; 36&nbsp;|&nbsp;YuanTan&nbsp; | </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;3114006442&nbsp;|&nbsp;Jim&nbsp; &nbsp; |&nbsp;male&nbsp; &nbsp;|&nbsp; 39&nbsp;|&nbsp;JiangMen&nbsp;| </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;3114006443&nbsp;|&nbsp;Pei&nbsp; &nbsp; |&nbsp;male&nbsp; &nbsp;|&nbsp; 42&nbsp;|&nbsp;PuNing&nbsp; &nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">|&nbsp;3214006336&nbsp;|&nbsp;Hui&nbsp; &nbsp; |&nbsp;female&nbsp;|&nbsp; 31&nbsp;|&nbsp;ChaoShan&nbsp;| </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number11 index10 alt2"><code class="bash plain">5&nbsp;rows&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>&nbsp; <span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">OK！没问题，可以看到数据跟我们预想操作的是一样，下面我们就来总结一下修改（更新）表中数据的基本命令语法：</span></span></p>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px; color: #00b0f0;">update 数据库列名 set 列够=新value where 更新条件;</span></span></p>
+<p><span>&nbsp; &nbsp; &nbsp;也是比较简单，基它的就不多说了。<br></span></p>
+<hr>
+<p><strong><span style="color: #1f497d;">&nbsp;</span></strong></p>
+<p><strong><span style="color: #1f497d;">4.删除数据库表中的数据</span></strong></p>
+<p><span>有时候你想要做的是删除表中的数据，而不是修改那么简单，跟修改表中数据类似，删除表中数据的基本命令语法如下：</span></p>
+<p><span style="color: #00b0f0;">delete from 数据库表名 where 删除条件;</span></p>
+<p><span>好，下面我们就来把表中name为"Pei"的一行数据删除掉：</span></p>
+<div>
+<div id="highlighter_535764" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;delete&nbsp;from&nbsp;network3&nbsp;where&nbsp;name=</code><code class="bash string">'Pei'</code><code class="bash plain">; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;1&nbsp;row&nbsp;affected&nbsp;(0.02&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>&nbsp; <span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">删除完后，我们再查看一下表中的数据：</span></span></p>
+<div>
+<div id="highlighter_621356" class="syntaxhighlighter  as3 ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="as3 plain">mysql&gt;&nbsp;select&nbsp;*&nbsp;from&nbsp;network3; </code></div>
+<div class="line number2 index1 alt1"><code class="as3 plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number3 index2 alt2"><code class="as3 plain">|&nbsp;id&nbsp;|&nbsp;name&nbsp; &nbsp;|&nbsp;sex&nbsp; &nbsp; |&nbsp;age&nbsp;|&nbsp;address&nbsp; | </code></div>
+<div class="line number4 index3 alt1"><code class="as3 plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number5 index4 alt2"><code class="as3 plain">|&nbsp;</code><code class="as3 value">3114006440</code>&nbsp;<code class="as3 plain">|&nbsp;Xuan&nbsp; &nbsp;|&nbsp;male&nbsp; &nbsp;|&nbsp; </code><code class="as3 value">37</code>&nbsp;<code class="as3 plain">|&nbsp;ShanWei&nbsp; | </code></div>
+<div class="line number6 index5 alt1"><code class="as3 plain">|&nbsp;</code><code class="as3 value">3114006441</code>&nbsp;<code class="as3 plain">|&nbsp;xpleaf&nbsp;|&nbsp;male&nbsp; &nbsp;|&nbsp; </code><code class="as3 value">36</code>&nbsp;<code class="as3 plain">|&nbsp;YuanTan&nbsp; | </code></div>
+<div class="line number7 index6 alt2"><code class="as3 plain">|&nbsp;</code><code class="as3 value">3114006442</code>&nbsp;<code class="as3 plain">|&nbsp;Jim&nbsp; &nbsp; |&nbsp;male&nbsp; &nbsp;|&nbsp; </code><code class="as3 value">39</code>&nbsp;<code class="as3 plain">|&nbsp;JiangMen&nbsp;| </code></div>
+<div class="line number8 index7 alt1"><code class="as3 plain">|&nbsp;</code><code class="as3 value">3214006336</code>&nbsp;<code class="as3 plain">|&nbsp;Hui&nbsp; &nbsp; |&nbsp;female&nbsp;|&nbsp; </code><code class="as3 value">31</code>&nbsp;<code class="as3 plain">|&nbsp;ChaoShan&nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="as3 plain">+------------+--------+--------+-----+----------+ </code></div>
+<div class="line number10 index9 alt1"><code class="as3 value">4</code>&nbsp;<code class="as3 plain">rows&nbsp;</code><code class="as3 keyword">in</code>&nbsp;<code class="as3 keyword">set</code>&nbsp;<code class="as3 plain">(</code><code class="as3 value">0.00</code>&nbsp;<code class="as3 plain">sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;可以看到数据已经成功删除掉，如果你觉得删除一行数据不过瘾的话可是根据条件来删除多行数据，当然，你也可以把这个表中所有的数据都删除表，只需要使用下面这条命令就可以了：</span></span></p>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px; color: #00b0f0;">delete from 数据库表名;</span><span style="font-size: 14px;"><br></span></span></p>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">也就是不添加删除条件，不过这里你先别这样操作，数据我们后面还需要使用，有一点需要注意的是，这个命令只是把表中的所有数据删除而已，并没有把这个表也删除了，这个数据库表是依然存在的，只是这时候它就是一个空表，就像我们刚刚创建它时一样。<br></span></span></p>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">&nbsp;</span></span></p>
+<hr>
+<p><strong><span style="color: #1f497d;">&nbsp;</span></strong></p>
+<p><strong><span style="color: #1f497d;">5.修改数据库表</span></strong></p>
+<p><span>看到这个标题你可能觉得纳闷，前面不是已经有修改数据库表的内容了吗？要注意的是，前面讲的是修改数据库表中的数据，注意啊，是表中的数据，并不是这个表本身，也就是说不涉及这个表本身的结构。而这里讲的，就是要修改数据库表的结构，比如说添加一列、删除一列，或者说只是简单的修改列的名称或数据类型等，这里一定要弄清楚这是两个完全不同的操作。<br></span></p>
+<p><strong><em><span>（1）修改数据库表中的列</span></em></strong><span><br></span></p>
+<p><span>就直接给出命令语法了：<br></span></p>
+<p><span style="color: #00b0f0;">alter table 数据库表名 change 列名称 新数据类型 [其它];</span></p>
+<p><span>还是看下面我的操作：<br></span></p>
+<p><span>在修改前，先看一下原来数据库表的详细信息：<br></span></p>
+<div>
+<div id="highlighter_910672" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;describe&nbsp;network3; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+---------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;Field&nbsp; &nbsp;|&nbsp;Type&nbsp; &nbsp; &nbsp;|&nbsp;Null&nbsp;|&nbsp;Key&nbsp;|&nbsp;Default&nbsp;|&nbsp;Extra&nbsp;| </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+---------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp; &nbsp; &nbsp; <code class="bash plain">|&nbsp;char(10)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp;PRI&nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;name&nbsp; &nbsp; |&nbsp;char(16)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;sex&nbsp; &nbsp; &nbsp;|&nbsp;char(6)&nbsp; |&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;age&nbsp; &nbsp; &nbsp;|&nbsp;int(11)&nbsp; |&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">|&nbsp;address&nbsp;|&nbsp;char(36)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">+---------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number11 index10 alt2"><code class="bash plain">5&nbsp;rows&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">开始做修改操作：</span></span></p>
+<div>
+<div id="highlighter_970102" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+<div class="line number14 index13 alt1">14</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash comments">#将列名称"adress"修改为"addr"，其它保持不变 </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">mysql&gt;&nbsp;alter&nbsp;table&nbsp;network3&nbsp;change&nbsp;address&nbsp;addr&nbsp;char(30)&nbsp;not&nbsp;null; </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">Query&nbsp;OK,&nbsp;4&nbsp;rows&nbsp;affected&nbsp;(0.04&nbsp;sec) </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">Records:&nbsp;4&nbsp; Duplicates:&nbsp;0&nbsp; Warnings:&nbsp;0 </code></div>
+<div class="line number5 index4 alt2"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number6 index5 alt1"><code class="bash comments">#将列"name"的数据类型修改为最大可以存放20个字符的char类型，其它保持不变 </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">mysql&gt;&nbsp;alter&nbsp;table&nbsp;network3&nbsp;change&nbsp;name&nbsp;name&nbsp;char(20)&nbsp;not&nbsp;null; </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;4&nbsp;rows&nbsp;affected&nbsp;(0.03&nbsp;sec) </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">Records:&nbsp;4&nbsp; Duplicates:&nbsp;0&nbsp; Warnings:&nbsp;0 </code></div>
+<div class="line number10 index9 alt1"><code class="bash spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="bash comments">#同时修改列"sex"的名称和数据类型 </code></div>
+<div class="line number12 index11 alt1"><code class="bash plain">mysql&gt;&nbsp;alter&nbsp;table&nbsp;network3&nbsp;change&nbsp;sex&nbsp;Sex&nbsp;char(10)&nbsp;not&nbsp;null; </code></div>
+<div class="line number13 index12 alt2"><code class="bash plain">Query&nbsp;OK,&nbsp;4&nbsp;rows&nbsp;affected&nbsp;(0.05&nbsp;sec) </code></div>
+<div class="line number14 index13 alt1"><code class="bash plain">Records:&nbsp;4&nbsp; Duplicates:&nbsp;0&nbsp; Warnings:&nbsp;0</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">查看修改后的数据库表的详细信息：</span></span></p>
+<div>
+<div id="highlighter_73859" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;describe&nbsp;network3; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+-------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;Field&nbsp;|&nbsp;Type&nbsp; &nbsp; &nbsp;|&nbsp;Null&nbsp;|&nbsp;Key&nbsp;|&nbsp;Default&nbsp;|&nbsp;Extra&nbsp;| </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+-------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp; &nbsp; <code class="bash plain">|&nbsp;char(10)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp;PRI&nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;name&nbsp; |&nbsp;char(20)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;Sex&nbsp; &nbsp;|&nbsp;char(10)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;age&nbsp; &nbsp;|&nbsp;int(11)&nbsp; |&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">|&nbsp;addr&nbsp; |&nbsp;char(30)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">+-------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number11 index10 alt2"><code class="bash plain">5&nbsp;rows&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.01&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">可以看到，通过修改操作之后，数据库表的格式改成了我们想要的格式。</span></span></p>
+<p><strong><em><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">（2）删除数据库表的列</span></span></em></strong><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;"><br></span></span></p>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">有时候，随着时间的推移，数据库表中的某些内容显得没有那么重要了，或者说已经没有存在的意义了，这时候我们就可以把整一列都删除掉，这样就可以节省一些存储空间了。<br></span></span></p>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">删除列的基本命令语法如下：<br></span></span></p>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px; color: #00b0f0;">alter table 数据库表名 drop 列名称;</span><span style="font-size: 14px;"><br></span></span></p>
+<p><span style="font-family: &#39;微软雅黑&#39;, &#39;Microsoft YaHei&#39;;"><span style="font-size: 14px;">我们来做如下的操作：<br></span></span></p>
+<div>
+<div id="highlighter_592717" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;alter&nbsp;table&nbsp;network3&nbsp;drop&nbsp;addr; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;4&nbsp;rows&nbsp;affected&nbsp;(0.02&nbsp;sec) </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">Records:&nbsp;4&nbsp; Duplicates:&nbsp;0&nbsp; Warnings:&nbsp;0</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>我们删除了addr这一列，虽然提示已经成功删除，但我们还是习惯性地检查一下删除一列之后数据库表的详细信息：</span></p>
+<div>
+<div id="highlighter_528623" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;describe&nbsp;network3; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+-------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;Field&nbsp;|&nbsp;Type&nbsp; &nbsp; &nbsp;|&nbsp;Null&nbsp;|&nbsp;Key&nbsp;|&nbsp;Default&nbsp;|&nbsp;Extra&nbsp;| </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+-------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp; &nbsp; <code class="bash plain">|&nbsp;char(10)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp;PRI&nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;name&nbsp; |&nbsp;char(20)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;Sex&nbsp; &nbsp;|&nbsp;char(10)&nbsp;|&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;age&nbsp; &nbsp;|&nbsp;int(11)&nbsp; |&nbsp;NO&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;|&nbsp;NULL&nbsp; &nbsp; |&nbsp; &nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">+-------+----------+------+-----+---------+-------+ </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">4&nbsp;rows&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>没问题，确实是删除了addr这一行，我们再去看一下数据库表中的数据内容：</span></p>
+<div>
+<div id="highlighter_407233" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;</code><code class="bash functions">select</code>&nbsp;<code class="bash plain">*&nbsp;from&nbsp;network3; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+------------+--------+--------+-----+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;</code><code class="bash functions">id</code>&nbsp;<code class="bash plain">|&nbsp;name&nbsp; &nbsp;|&nbsp;Sex&nbsp; &nbsp; |&nbsp;age&nbsp;| </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+------------+--------+--------+-----+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;3114006440&nbsp;|&nbsp;Xuan&nbsp; &nbsp;|&nbsp;male&nbsp; &nbsp;|&nbsp; 37&nbsp;| </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;3114006441&nbsp;|&nbsp;xpleaf&nbsp;|&nbsp;male&nbsp; &nbsp;|&nbsp; 36&nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;3114006442&nbsp;|&nbsp;Jim&nbsp; &nbsp; |&nbsp;male&nbsp; &nbsp;|&nbsp; 39&nbsp;| </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;3214006336&nbsp;|&nbsp;Hui&nbsp; &nbsp; |&nbsp;female&nbsp;|&nbsp; 31&nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">+------------+--------+--------+-----+ </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">4&nbsp;rows&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>这下子就完全放心了，因为我们前面的操作确实是成功了！</span></p>
+<p><strong><em><span>（3）重命名数据库表</span></em></strong></p>
+<p><span>通过前面的操作，我们的数据库表已经焕然一新，跟原来的相比，结构已经发生了一些变化，这时我们就给这个数据库表重命名吧。<br></span></p>
+<p><span>给数据库表重命名的基本命令语法如下：<br></span></p>
+<div>
+<div id="highlighter_148088" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;alter&nbsp;table&nbsp;network3&nbsp;rename&nbsp;New_network3; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;0&nbsp;rows&nbsp;affected&nbsp;(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>再用show tables;来查看一下此时存在的数据库表：</span></p>
+<div>
+<div id="highlighter_452241" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;show&nbsp;tables; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+-------------------------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;Tables_in_students_info&nbsp;| </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+-------------------------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;New_network3&nbsp; &nbsp; | </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">+-------------------------+ </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">1&nbsp;row&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>好！也没有问题了。</span></p>
+<p><em><strong><span>（4）删除数据库表</span></strong></em></p>
+<p><span>New_network3存放的是一个班的学生信息，他们总有毕业的一天，当他们毕业的时候，也许我们就不再需要存放他们的信息了，这时就可以把这张数据库表删除了。<br></span></p>
+<p><span>删除数据库表的基本命令语法如下：<br></span></p>
+<p><span style="color: #00b0f0;">drop table 数据库表名;</span><span><br></span></p>
+<p><span>好吧，我们也来操作一下：<br></span></p>
+<div>
+<div id="highlighter_275797" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;drop&nbsp;table&nbsp;New_network3; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;0&nbsp;rows&nbsp;affected&nbsp;(0.01&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>再用show tables;来查看一下数据库中的数据库表：</span></p>
+<div>
+<div id="highlighter_273172" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;show&nbsp;tables; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Empty&nbsp;</code><code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>可以看到这时显示为Empty，空的，也就是此时students_info这个数据库中已经没有数据库表了（注意了，我们前面的操作一直都是在使用studnets_info这个数据库），很正常，因为最开始我们只创建了一个数据库表，然后现在又把它删除了。</span></p>
+<hr>
+<p><strong><span style="color: #1f497d;">&nbsp;</span></strong></p>
+<p><strong><span style="color: #1f497d;">6.删除数据库</span></strong></p>
+<p><span>最开始我们在MySQL数据库创建了students_info这个数据库，是为了在用它来存储学生信息，现在，我们不想用MySQL数据库来存储有关学生信息了，这时，就可以考虑把students_info这个数据库删除了。<br></span></p>
+<p><span>删除数据库的基本命令语法如下：<br></span></p>
+<p><span style="color: #00b0f0;">drop database 数据库名;</span><span><br></span></p>
+<p><span>虽然很不舍，但我们总要向前走，才能进步，所以下面我们就来执行这个操作：<br></span></p>
+<div>
+<div id="highlighter_950014" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;drop&nbsp;database&nbsp;students_info; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">Query&nbsp;OK,&nbsp;0&nbsp;rows&nbsp;affected&nbsp;(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>这时我们再使用show databases;来查看MySQL数据库的数据库：</span></p>
+<div>
+<div id="highlighter_342154" class="syntaxhighlighter  bash ie">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">mysql&gt;&nbsp;show&nbsp;databases; </code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">+--------------------+ </code></div>
+<div class="line number3 index2 alt2"><code class="bash plain">|&nbsp;Database&nbsp; &nbsp;| </code></div>
+<div class="line number4 index3 alt1"><code class="bash plain">+--------------------+ </code></div>
+<div class="line number5 index4 alt2"><code class="bash plain">|&nbsp;information_schema&nbsp;| </code></div>
+<div class="line number6 index5 alt1"><code class="bash plain">|&nbsp;manager_system&nbsp; &nbsp; &nbsp;| </code></div>
+<div class="line number7 index6 alt2"><code class="bash plain">|&nbsp;mysql&nbsp; &nbsp; &nbsp; | </code></div>
+<div class="line number8 index7 alt1"><code class="bash plain">|&nbsp;stu_info&nbsp; &nbsp;| </code></div>
+<div class="line number9 index8 alt2"><code class="bash plain">|&nbsp;xpleaf_server_data&nbsp;| </code></div>
+<div class="line number10 index9 alt1"><code class="bash plain">+--------------------+ </code></div>
+<div class="line number11 index10 alt2"><code class="bash plain">5&nbsp;rows&nbsp;</code><code class="bash keyword">in</code>&nbsp;<code class="bash functions">set</code>&nbsp;<code class="bash plain">(0.00&nbsp;sec)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span>可以发现，students_info这个数据库已经没有了，我知道这一路下来对这个数据库都有些感情了，但请相信我，它的使命已经完成。</span></p>
+<p style="white-space: normal;"><span style="background-color: #548dd4;"><strong><span style="background-color: #548dd4;">四、进阶操作</span></strong></span></p>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">1.修改MySQL数据库的登陆密码</span></strong></p>
+<p style="white-space: normal;"><span>不管怎么说，你的MySQL数据库密码总不可能一直不变，说不定哪一天你不小心把它告诉了你的朋友，而里面又存放了非常重要的数据，这时你就要修改数据库的登陆密码了。</span></p>
+<p style="white-space: normal;"><span>修改数据库登陆密码的基本命令语法如下：</span></p>
+<p style="white-space: normal;"><span style="color: #00b0f0;">mysqladmin -r root -p password 新密码</span></p>
+<p style="white-space: normal;"><span>&nbsp;注意，这个操作应该是在你未登陆MySQL数据库之前进行的操作。</span><strong><span style="color: #1f497d;">&nbsp;</span></strong></p>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">2.在登陆MySQL数据库时指定要操作的数据库</span></strong></p>
+<p style="white-space: normal;"><span>直接给出下面的基本命令语法：<br></span></p>
+<p style="white-space: normal;"><span style="color: #00b0f0;">mysql -D 选择要操作的数据库名 -h 主机名 -u root -p</span><span><br></span></p>
+<p style="white-space: normal;"><strong><span style="color: #1f497d;">3.通过文件的方式创建数据库表</span></strong></p>
+<p style="white-space: normal;"><span>前面我们在创建数据库表时，使用的方法是在MySQL数据库的命令行界面中一行一行输入的，这样不仅很容易输错，而且一旦输错了，又得重新输一遍，当要创建一个结构比较复杂的数据库表时，这样的方法显然是行不能的，这时我们就可以考虑使用文件的方式来操作了。<br></span></p>
+<p style="white-space: normal;"><span>直接给出下面的基本命令语法：<br></span></p>
+<p style="white-space: normal;"><span style="color: #00b0f0;">mysql -D 选择要操作的数据库名 -h 主机名 -u root -p &lt; .sql类型文件</span></p>
+<p><span>你可以看到，在进阶操作这一部分里，我并没有给大家进行具体的操作，实在是因为我觉得，通过前面的操作之后，如果你真的操作过了，那么你对MySQL数据库应该是有一定的了解了，这时候你应该举一反三，自己去尝试做这几个进阶操作，当你把这几个进阶操作也完成了，相信我，你对MySQL数据库基本命令的操作一定会上升一个Level的！所以，我这里就不给出具体操作啦，否则的话，意义就不太大了。</span></p>
+<p><strong style="white-space: normal;"><span style="background-color: #548dd4;">五、说在后面的话</span></strong></p>
+<p><span>坦白说，如果你真的是跟着上面我的操作一步一步去做，对MySQL数据库的基本操作应该是有一个比较好的掌握了，本文的内容不敢说全部是原创，因为本人也是根据自己当时学习的一个思路整理出来写本文的，也参考了一些网上的资料，但这里我希望可以做到的是，提供一篇较为完整的、可以跟着操作的MySQL数据库入门的文章，因为我始终相信，计算机这东西，如果仅仅是看而不操作，是不可能有提升的。</span></p>
+<p><span>不管怎么说，写此文，一来也是自己做一个总结，二来真心是希望可以帮助到有需要的朋友，想想当初自己也是那么茫然，觉得要学数据库操作，应该要懂数据库原理才对，呵呵，如果真是那样，我想我现在还不懂MySQL的基本操作了。<br></span></p>
+<p><span>那么基于这样之后，我觉得再去学数据库原理就好理解多了，因为在你脑海中已经有了数据库的一个基本概念，至少不会那么抽象了，通过自己的操作，你已经找到了一个非常具体的例子去帮你理解数据库原理了。<br></span></p>
+<p><span>当然，通过这之后，如果你是刚入门编程或者开发，需要用到数据库来保存数据了，那么这时候你对数据库也就不会那么陌生了，需要做的只是调用对应开发语言中一个个库来帮你完成数据的存储与读取。</span></p>
+<p><span>写那么多也难以一个字一个字去检查，由于技术水平和技术文章的撰写能力有限，有不足的地方还希望可以提出来，不尽感激！</span></p>
+<p><span style="font-size: small;"><strong>本文永久更新链接地址</strong></span>：<a href="https://www.linuxidc.com/Linux/2016-02/128127.htm">http://www.linuxidc.com/Linux/2016-02/128127.htm</a></p><a href="http://www.linuxidc.com/" target="_blank"><img src="./mysql_files/logo.gif" alt="linux" width="15" height="17"></a></div><a href="http://www.linuxidc.com/" target="_blank">
+<div class="linux3"><script type="text/javascript" src="./mysql_files/linux3.js"></script><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- LinuxIDC.com���������¹�� -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-5195587195407606" data-ad-slot="4132633744"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div class="linux302"><script type="text/javascript" src="./mysql_files/linux302.js"></script></div>		
+			
+			
+		</a></div><a href="http://www.linuxidc.com/" target="_blank">
+<div class="linuxfx"><script type="text/javascript" src="./mysql_files/fx.js"></script></div>	
+<div class="linux8"><script type="text/javascript" src="./mysql_files/linux8.js"></script><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Google匹配内容 -->
+<ins class="adsbygoogle" style="display:inline-block;width:760px;height:410px" data-ad-client="ca-pub-5195587195407606" data-ad-slot="7446930524"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</a><div class="linux801"><a href="http://www.linuxidc.com/" target="_blank"><script type="text/javascript" src="./mysql_files/linux801.js"></script></a><p style="text-align: center;"><a href="http://www.linuxidc.com/" target="_blank"></a><a href="https://www.linuxidc.com/Linux/2014-08/106019.htm" target="_blank"><span style="color: #ff0000; font-size: medium;"><strong>关注Linux公社（LinuxIDC.com）官方微信与QQ群，随机发放邀请码</strong></span></a></p>
+</div>
+		<div class="nearNews">
+			<div class="prevNews"><a href="https://www.linuxidc.com/Linux/2016-02/128125.htm">如何测试你的MongoDB应用升级？</a></div>
+			<div class="nextNews"><a href="https://www.linuxidc.com/Linux/2016-02/128209.htm">如何在 Ubuntu 15.04 上安装带 JSON 支持的 SQLite 3.9.1</a></div>
+		</div>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+<div class="linux809"><script type="text/javascript" src="./mysql_files/linux809.js"></script></div>
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">相关资讯</span> &nbsp; &nbsp; &nbsp;
+		<a href="https://www.linuxidc.com/search.aspx?where=nkey&amp;keyword=5719" target="_blank">MySQL教程</a>&nbsp; <a href="https://www.linuxidc.com/search.aspx?where=nkey&amp;keyword=9211" target="_blank">MySQL入门教程</a>&nbsp; 
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<table width="100%"><tbody><tr><td width="50%" valign="top"><ul class="nl"><li><a href="https://www.linuxidc.com/Linux/2017-02/141092.htm" target="_blank">MySQL数据库操作教程</a>&nbsp; <span class="gray">(<span class="time">今 07:20</span>)</span></li>
+<li><a href="https://www.linuxidc.com/Linux/2016-06/132477.htm" target="_blank">MySQL入门教程</a>&nbsp; <span class="gray">(06/20/2016 14:17:17)</span></li>
+<li><a href="https://www.linuxidc.com/Linux/2016-01/127795.htm" target="_blank" title="MySQL教程：关于I/O内存方面的一些优化">MySQL教程：关于I/O内存方面的一些</a>&nbsp; <span class="gray">(01/24/2016 11:03:36)</span></li>
+</ul></td><td width="50%" valign="top"><ul class="nl"><li><a href="https://www.linuxidc.com/Linux/2016-11/136939.htm" target="_blank">MySQL 快速入门学习教程</a>&nbsp; <span class="gray">(11/10/2016 08:09:06)</span></li>
+<li><a href="https://www.linuxidc.com/Linux/2016-01/127796.htm" target="_blank">MySQL教程：关于checkpoint机制</a>&nbsp; <span class="gray">(01/24/2016 11:06:39)</span></li>
+<li><a href="https://www.linuxidc.com/Linux/2014-08/105948.htm" target="_blank" title="用MySQL里的Rand()生成 不连续重复 的随机数年龄以及随机姓名字符串">用MySQL里的Rand()生成 不连续重复</a>&nbsp; <span class="gray">(08/29/2014 14:22:39)</span></li>
+</ul></td></tr></tbody></table>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+<div class="linux808"><script type="text/javascript" src="./mysql_files/linux808.js"></script></div>
+	
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">本文评论</span>
+		 	　　<a href="https://www.linuxidc.com/remark.aspx?id=128127" target="_blank">查看全部评论</a> <span class="gray">(4)</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<table width="100%" style="margin:6px">		
+		<tbody><tr><td width="50%">
+			<form action="https://www.linuxidc.com/Linux/2016-02/128127.htm" name="fmRemarkSt" onsubmit="return remark.post(this);">
+			<input type="hidden" value="1" name="face" disabled="disabled">
+			表情： <img src="./mysql_files/b.gif" alt="表情" class="face1" style="cursor:pointer;vertical-align:middle" onclick="remark.dispFace(this)" onmouseout="remark.hideFace()">
+			姓名： <input type="text" name="username" value="" maxlength="15" style="width:60px" class="inputbg" disabled="disabled">
+			<input type="checkbox" id="rmAnonymitySt" onclick="remark.anony(this)" disabled="disabled"><label for="rmAnonymitySt">匿名</label>
+			字数 <input type="text" id="bodyLen" size="3" readonly="readonly" style="border-width:0;background:transparent;vertical-align:middle" value="0" disabled="disabled">
+			<br>
+			<textarea name="body" cols="40" rows="4" onkeydown="remark.dispLen(this)" onkeyup="remark.handle(event,this);remark.dispLen(this)" style="width:39em;height:100px;margin:3px 0;overflow-y:auto" disabled="disabled"></textarea>
+				<br>
+		　　　<input type="checkbox" checked="checked" id="rmAgreeSt" disabled="disabled"><label for="rmAgreeSt">同意评论声明</label>
+		　　　<button type="submit" style="width: 50px; padding: 0px;" disabled="disabled">请登录</button>
+			</form><br>
+			评论声明
+			<ul style="list-style-type:square;margin:5px 0 0 1em;padding:0">
+			<li>尊重网上道德，遵守中华人民共和国的各项有关法律法规</li>
+			<li>承担一切因您的行为而直接或间接导致的民事或刑事法律责任</li>
+			<li>本站管理人员有权保留或删除其管辖留言中的任意内容</li>
+			<li>本站有权在网站内转载或引用您的评论</li>
+			<li>参与本评论即表明您已经阅读并接受上述条款</li>
+			</ul>
+		</td>
+		<td width="50%"><div class="linux799"><script type="text/javascript" src="./mysql_files/linux799.js"></script><img src="./mysql_files/weixin.png" alt="" width="291" height="250">
+</div></td></tr>
+		</tbody></table>
+		<script type="text/javascript" src="./mysql_files/remark.js"></script>
+		<script type="text/javascript">
+			remark.maxSize=500;
+			remark.minSize=2;
+			remark.sourceEle=$(document.fmRemarkSt).find("button").get(0);
+			iwms.vCode="D2BDA41E";
+			iwms.user.name.length==0 ? $i("rmAnonymitySt").click() : $i("rmAnonymitySt").form.username.value=iwms.user.name;
+		</script>
+		<div class="reCont" id="reContainer"><div class="reHead"><div class="reLayer">第 4 楼</div><img src="./mysql_files/b.gif" class="face1" alt="*"> <span class="reName">匿名</span> 发表于 <span class="reDate">2017/1/14 23:38:12</span></div><div class="reBody">真的好文！</div><div class="reFun"><a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.disp(this,9655)">回复</a> <a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.vote(this,9655,1)">支持</a><span> (0)</span> <a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.vote(this,9655,0)">反对</a><span> (0)</span></div><div class="reHead"><div class="reLayer">第 3 楼</div><img src="./mysql_files/b.gif" class="face1" alt="*"> <span class="reName">匿名</span> 发表于 <span class="reDate">2017/1/7 21:29:13</span></div><div class="reBody">非常好的快速入门</div><div class="reFun"><a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.disp(this,9599)">回复</a> <a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.vote(this,9599,1)">支持</a><span> (0)</span> <a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.vote(this,9599,0)">反对</a><span> (0)</span></div><div class="reHead"><div class="reLayer">第 2 楼</div><img src="./mysql_files/b.gif" class="face1" alt="*"> <span class="reName">swzhang<img src="./mysql_files/member_male.gif" alt="会员"></span> 发表于 <span class="reDate">2016/8/29 19:08:34</span></div><div class="reBody">感谢，好人一生平安 </div><div class="reFun"><a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.disp(this,9281)">回复</a> <a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.vote(this,9281,1)">支持</a><span> (1)</span> <a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.vote(this,9281,0)">反对</a><span> (0)</span></div><div class="reHead"><div class="reLayer">第 1 楼</div><img src="./mysql_files/b.gif" class="face1" alt="*"> <span class="reName">595856028<img src="./mysql_files/member_male.gif" alt="会员"></span> 发表于 <span class="reDate">2016/2/14 17:15:44</span></div><div class="reBody">楼主，我是初学者，有什么书可以推荐给我吗?  谢谢<br></div><div class="reFun"><a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.disp(this,9024)">回复</a> <a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.vote(this,9024,1)">支持</a><span> (0)</span> <a href="https://www.linuxidc.com/Linux/2016-02/128127.htm###" onclick="remark.vote(this,9024,0)">反对</a><span> (0)</span></div></div>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+	
+</td><td width="300" valign="top">
+<div class="linux901"><script type="text/javascript" src="./mysql_files/linux901.js"></script></div>
+<div class="linux902"><script type="text/javascript" src="./mysql_files/linux902.js"></script><a href="https://www.linuxprobe.com/chapter-00.html" rel="nofollow" target="_blank"><img src="./mysql_files/lws.jpg" alt="" width="300" height="300"></a>
+</div>
+<div class="linux903"><script type="text/javascript" src="./mysql_files/linux903.js"></script></div>
+<div class="linux905"><script type="text/javascript" src="./mysql_files/linux905.js"></script></div>
+	
+	<div class="lframe">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">最新资讯</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<ul class="nl">
+<li><a href="https://www.linuxidc.com/Linux/2017-02/141092.htm" target="_blank">MySQL数据库操作教程</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-02/141091.htm" target="_blank">Ubuntu 16.04下FFmpeg搭建简易监控环境</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-02/141090.htm" target="_blank">Oracle里常见的执行计划</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-02/141089.htm" target="_blank">使用yum安装cmake</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-02/141088.htm" target="_blank" title="Ubuntu 16.04 Vim YouCompleteMe自动补全的安装配置与使用">Ubuntu 16.04 Vim YouCompleteMe自动补全的</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-02/141087.htm" target="_blank" title="VMware Virtual SAN 设计和规模设定指南 PDF">VMware Virtual SAN 设计和规模设定指南 </a></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-02/141086.htm" target="_blank">Virtual SAN 6.1 延伸群集指南 PDF</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-02/141085.htm" target="_blank" title="VMware Virtual SAN 6.0 设计和优化指南 docx">VMware Virtual SAN 6.0 设计和优化指南 </a></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-02/141084.htm" target="_blank" title="基于Keepalived+Nginx部署高可用7层负载均衡方案">基于Keepalived+Nginx部署高可用7层负载均</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-02/141083.htm" target="_blank">Redis热迁移实战总结</a></li>
+</ul>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+	<div class="u70"><script type="text/javascript" src="./mysql_files/u70.js"></script></div>
+	<div class="u80"><script type="text/javascript" src="./mysql_files/u80.js"></script></div>
+	<div class="u90"><script type="text/javascript" src="./mysql_files/u90.js"></script></div>
+	<div class="space"></div>
+	<div id="pin" style="position: static; top: 0px;">
+	<script type="text/javascript" src="./mysql_files/pin.js"></script><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 右侧粘性自适应 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5195587195407606" data-ad-slot="7669622914" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+	</div>
+</td></tr>
+</tbody></table>
+<div class="linux906"><script type="text/javascript" src="./mysql_files/linux906.js"></script></div>
+<div id="footer">
+<a href="http://www.linuxidc.com/aboutus.htm">Linux公社简介</a> - <a href="http://www.linuxidc.com/adsense.htm">广告服务</a> - <a href="http://www.linuxidc.com/sitemap.aspx">网站地图</a> - <a href="http://www.linuxidc.com/help.htm">帮助信息</a> - <a href="http://www.linuxidc.com/contactus.htm">联系我们</a><br>本站（LinuxIDC）所刊载文章不代表同意其说法或描述，仅为提供更多信息，也不构成任何建议。<br><script type="text/javascript" src="./mysql_files/qq.js"></script>主编：漏网的鱼 联系邮箱:<img src="./mysql_files/email.png" alt="" width="138" height="20"> (如有合作请联系)
+<br>
+<script type="text/javascript" src="./mysql_files/foot.js"></script>本站带宽由[<font color="red">808.Ai</font>]友情提供<br>关注Linux，关注LinuxIDC.com，<font color="red">请向您的QQ好友宣传LinuxIDC.com</font>，多谢支持！
+<br>Copyright © 2006-2016　<a href="http://www.linuxidc.com/">Linux公社</a>　All rights reserved 沪ICP备15008072号-1号
+	<script type="text/javascript">iwms.aId=128127;$(function(){iwms.imgCont=$i('content');iwms.imgResize();InitContStyle();iwms.getVars();})</script>
+	
+</div>
+</div>
+<script type="text/javascript" src="./mysql_files/linuxren1.js"></script><script type="text/javascript">
+document.body.oncopy = function () { setTimeout( function () { var text = clipboardData.getData("text"); if (text) { text = text + "\r\n本篇文章来源于 Linux公社网站(www.linuxidc.com)  原文链接："+location.href; clipboardData.setData("text", text); } }, 100 ) }
+</script>
+
+<script type="text/javascript" src="./mysql_files/linuxren2.js"></script>
+<script type="text/javascript" src="./mysql_files/linuxren3.js"></script><script src="./mysql_files/h.js" type="text/javascript"></script>
+
+<div id="hm_t_undefined" class="hm-t-container"><div class="hm-t-go-top" style="display: none;"></div></div></body></html>

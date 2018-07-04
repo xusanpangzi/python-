@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://blog.csdn.net/column/details/pythonpil.html?&page=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script charset="utf-8" src="./PIL_files/b.js"></script>
+    <meta name="referrer" content="always">
+    <link rel="canonical" href="http://blog.csdn.net/column/details/pythonpil.html?&amp;page=1">
+    <script src="./PIL_files/hm.js"></script><script type="text/javascript" src="./PIL_files/tingyun-rum.js"></script>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <meta name="keywords">
+    <meta name="description">
+
+
+    <script src="./PIL_files/jquery-1.11.1.min.js" type="text/javascript"></script>
+
+    <link rel="shortcut icon" href="https://csdnimg.cn/public/favicon.ico">
+    <link rel="stylesheet" href="./PIL_files/index.css">
+    <link rel="stylesheet" href="./PIL_files/bootstrap.css">
+    <link rel="stylesheet" href="./PIL_files/avatar.css">
+    <link rel="stylesheet" href="./PIL_files/common_index.css">
+    <!-- [if IE 7]-->
+    <link rel="stylesheet" href="./PIL_files/font-awesome.min.css">
+    <!-- [endif]-->
+    <!-- [if lt IE 9]-->
+    <script src="./PIL_files/html5shiv.min.js"></script>
+    <!-- [endif]-->
+    <style type="text/css">.hide{display:none;}.advert-bg{background-color:#000;}.advert{width: 1200px;margin: 0 auto;position:relative;line-height: 0;font-size: 0;}.advert .advert-log{display:none;width:90px;height:22px;background-image: url("//csdnimg.cn/public/publick_img/gitchat_logo.png");background-repeat: no-repeat;background-size: contain;position:absolute;top:25px;left:27px;z-index: 10;}.advert .advert-a{display:inline-block;width:100%;height:80px;background-repeat: no-repeat;background-size: contain;background-position: 50% 0;opacity:0;-webkit-transition: all 0.2s linear;-o-transition: all 0.2s linear;-ms-transition: all 0.2s linear;-moz-transition: all 0.2s linear;transition: all 0.2s linear;}.advert-cur .advert-a{background-image: url("//csdnimg.cn/public/publick_img/ad_20180622_toolbar80.jpg") !important;opacity:1;}.advert-ex .advert-a{height:200px;opacity:1;}.csdn-bbs .advert .advert-close, .advert .advert-close{position:absolute;z-index:10;right: 2%;top: 15%;color: #fff;font-size: 22px;}</style><title>专栏：Python图像处理库PIL从入门到精通 - CSDN博客</title>
+
+    <!-- ad begin -->
+    <script language="javascript" type="text/javascript" src="./PIL_files/tracking-1.0.1.js"></script>
+    <!-- ad end-->
+
+<script type="text/javascript" charset="utf-8" src="./PIL_files/tracking-1.0.2.js"></script><script type="text/javascript" charset="utf-8" src="./PIL_files/main-1.0.2.js"></script><script type="text/javascript" src="./PIL_files/baidu_opensug-1.0.0.js"></script><script src="./PIL_files/get_ads.php" type="text/javascript"></script><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style></head>
+  <body><svg aria-hidden="true" style="position: absolute; width: 0px; height: 0px; overflow: hidden;"><symbol id="sousuo" viewBox="0 0 1024 1024"><path d="M768.92565 687.127141l0.879367 0.867797 237.255593 237.255593c22.585853 22.585853 22.585853 59.212655 0 81.804294-22.597424 22.591638-59.224226 22.591638-81.815864 0l-237.255593-237.255593c-0.289266-0.289266-0.578531-0.578531-0.862012-0.879368-71.917198 54.746395-161.682079 87.242486-259.043073 87.242486C191.661559 856.168136 0 664.512362 0 428.089853S191.661559 0 428.084068 0c236.422508 0 428.084068 191.661559 428.084068 428.084068 0 97.360994-32.501876 187.125876-87.242486 259.043073z m-340.841582 53.340565c172.523751 0 312.383638-139.859887 312.383638-312.383638s-139.859887-312.383638-312.383638-312.383639-312.383638 139.859887-312.383639 312.383639 139.859887 312.383638 312.383639 312.383638z"></path></symbol><symbol id="gonggong_csdnlogo_" viewBox="0 0 4096 1024"><path d="M1081.536 723.584c74.656 27.296 230.368 54.432 356.288 54.432 135.68 0 211.2-37.568 217.248-95.872 5.504-53.184-50.048-60.384-203.264-96.672-211.712-51.904-346.784-132.256-333.536-260.672 15.392-149.088 214.912-261.76 521.056-261.76 149.248 0 293.952 10.528 368.928 35.104l-25.728 188c-48.672-16.928-234.976-40.448-360.992-40.448-127.776 0-193.92 40.192-198.496 84.256-5.76 55.776 60.64 58.368 226.624 102.56 224.768 57.024 323.04 137.312 310.176 261.792-15.072 146.432-194.592 270.944-553.056 270.944-149.216 0-277.824-27.232-348.672-54.464l23.392-187.168zM3187.936 109.792c816.16-153.888 886.592 122.624 861.376 367.296l-47.52 452.64h-259.072l43.36-412.832c9.376-90.912 67.744-268.736-214.048-262.08-97.536 2.368-145.888 15.744-145.888 15.744s-8.48 109.856-18.752 191.04l-49.12 468.128h-254.08l50.432-461.376 33.312-358.56z m-1030.848-21.408c58.24-6.336 147.712-12.768 270.848-12.768 205.568 0 371.776 35.776 474.688 111.008 92.416 70.144 153.92 183.712 136.896 348.256-15.712 153.12-95.328 260.32-211.232 326.624-106.048 62.528-239.68 89.248-440.64 89.248-118.496 0-231.52-6.4-317.472-19.136L2157.12 88.384z m169.856 675.616c19.808 3.84 45.856 7.648 97.216 7.648 205.632 0 350.624-101.056 365.184-243.136 21.152-205.376-107.456-277.184-324.128-275.936-28.064 0-67.072 0-87.712 3.776l-50.592 507.616z" fill="#262626"></path><path d="M934.176 936.8c-48.736 16.896-149.696 28.416-290.752 28.416-405.632 0-624.576-190.4-598.688-442.112C75.712 223.2 400.064 54.464 755.2 54.464c137.536 0 218.528 11.072 294.4 29.632l-24.352 202.048c-50.464-16.992-168.736-32.608-264.48-32.608-208.96 0-386.432 62.24-406.784 259.136-18.144 176.064 106.432 260.224 341.504 260.224 81.824 0 202.464-11.712 258.24-28.64l-19.552 192.544z" fill="#CA0C16"></path></symbol><symbol id="gonggong_csdnlogodanse_" viewBox="0 0 4096 1024"><path d="M1081.536 723.584c74.656 27.296 230.368 54.432 356.288 54.432 135.68 0 211.2-37.568 217.248-95.872 5.504-53.184-50.048-60.384-203.264-96.672-211.712-51.904-346.784-132.256-333.536-260.672 15.392-149.088 214.912-261.76 521.056-261.76 149.248 0 293.952 10.528 368.928 35.104l-25.728 188c-48.672-16.928-234.976-40.448-360.992-40.448-127.776 0-193.92 40.192-198.496 84.256-5.76 55.776 60.64 58.368 226.624 102.56 224.768 57.024 323.04 137.312 310.176 261.792-15.072 146.432-194.592 270.944-553.056 270.944-149.216 0-277.824-27.232-348.672-54.464l23.392-187.168zM3187.936 109.792c816.16-153.888 886.592 122.624 861.376 367.296l-47.52 452.64h-259.072l43.36-412.832c9.376-90.912 67.744-268.736-214.048-262.08-97.536 2.368-145.888 15.744-145.888 15.744s-8.48 109.856-18.752 191.04l-49.12 468.128h-254.08l50.432-461.376 33.312-358.56z m-1030.848-21.408c58.24-6.336 147.712-12.768 270.848-12.768 205.568 0 371.776 35.776 474.688 111.008 92.416 70.144 153.92 183.712 136.896 348.256-15.712 153.12-95.328 260.32-211.232 326.624-106.048 62.528-239.68 89.248-440.64 89.248-118.496 0-231.52-6.4-317.472-19.136L2157.12 88.384z m169.856 675.616c19.808 3.84 45.856 7.648 97.216 7.648 205.632 0 350.624-101.056 365.184-243.136 21.152-205.376-107.456-277.184-324.128-275.936-28.064 0-67.072 0-87.712 3.776l-50.592 507.616z m-1392.768 172.8c-48.736 16.896-149.696 28.416-290.752 28.416-405.632 0-624.576-190.4-598.688-442.112C75.712 223.2 400.064 54.464 755.2 54.464c137.536 0 218.528 11.072 294.4 29.632l-24.352 202.048c-50.464-16.992-168.736-32.608-264.48-32.608-208.96 0-386.432 62.24-406.784 259.136-18.144 176.064 106.432 260.224 341.504 260.224 81.824 0 202.464-11.712 258.24-28.64l-19.552 192.544z"></path></symbol><symbol id="xieboke1" viewBox="0 0 1024 1024"><path d="M263.66464 665.6H783.36a25.6 25.6 0 1 1 0 51.2H230.4a25.48736 25.48736 0 0 1-15.4624-5.1968c-13.00992-7.4496-12.5952-21.77536-10.3424-28.9024 54.62528-155.136 141.62432-277.248 240.92672-368.09728 22.272-20.3776 54.1184-36.3776 80.09728-42.50624 108.88704-25.69728 180.0192-22.784 251.19232-21.69344a790.20544 790.20544 0 0 1-45.14816 47.8464c-2.52416 2.46272-129.8688 15.13984-148.23936 35.77344-18.37056 20.6336 102.1952 5.61152 98.7136 8.448a742.92224 742.92224 0 0 1-55.14752 40.97024c-3.55328 2.38592-117.86752-0.27648-137.69728 21.15584-19.82976 21.43232 80.36352 13.78304 75.76064 16.26112-53.1456 28.60032-99.2768 49.1264-167.68512 71.31136-45.48608 14.7456-96.0512 101.1712-115.56864 136.09984-8.43264 15.08352-14.0288 27.15648-18.13504 37.32992zM512 1024C229.23264 1024 0 794.76736 0 512S229.23264 0 512 0s512 229.23264 512 512-229.23264 512-512 512z m0-51.2c254.49472 0 460.8-206.30528 460.8-460.8s-206.30528-460.8-460.8-460.8-460.8 206.30528-460.8 460.8 206.30528 460.8 460.8 460.8z"></path></symbol><symbol id="gitchat" viewBox="0 0 1024 1024"><path d="M512 1024C229.23264 1024 0 794.76736 0 512S229.23264 0 512 0s512 229.23264 512 512-229.23264 512-512 512z m0-51.2c254.49472 0 460.8-206.30528 460.8-460.8s-206.30528-460.8-460.8-460.8-460.8 206.30528-460.8 460.8 206.30528 460.8 460.8 460.8z m204.8-343.81312h-58.5216v-87.77216H453.48864v-58.5216H716.8v146.29376z m-351.0784 29.27104v0.02048h263.30624V716.8H307.2V307.2h409.6v117.0176h-58.5216v-58.5216H365.7216v292.5568z m292.57728 0h58.5216v58.5216h-58.5216v-58.5216z"></path></symbol></svg><div class="advert-bg advert-cur"><div class="advert" id="advert"><a href="https://edu.csdn.net/promotion_activity?id=3&amp;utm_source=618qztt" class="advert-log"></a><a href="https://edu.csdn.net/promotion_activity?id=3&amp;utm_source=618qztt" style="background-image: url(//csdnimg.cn/public/publick_img/ad_20180622_toolbar200.jpg);" class="advert-a"></a><a href="https://blog.csdn.net/column/details/pythonpil.html?&amp;page=1" class="advert-close" id="js_advert_close">×</a></div></div><div id="csdn-toolbar" class="csdn-toolbar tb_disnone ">        <div class="container row center-block ">          <ul class="pull-left left-menu clearfix">            <li>              <a href="https://www.csdn.net/" title="CSDN首页" target="_blank"><svg class="toolbar-icon" aria-hidden="true"><use xlink:href="#gonggong_csdnlogo_"></use></svg></a>            </li>            <li><a href="https://www.csdn.net/" target="_blank">首页</a></li>            <li><a href="https://blog.csdn.net/" class="toolbar_to_feed" title="博客" target="_blank">博客</a></li>            <li><a href="https://edu.csdn.net/" title="学院" target="_blank">学院</a></li>            <li><a href="https://download.csdn.net/" title="下载" target="_blank">下载</a></li>            <li><a href="http://gitbook.cn/?ref=csdn" title="GitChat" target="_blank">GitChat</a></li>            <li><a href="https://www.tinymind.cn/?utm_source=csdnbar" target="_blank">TinyMind</a></li>            <li><a href="https://bbs.csdn.net/" title="论坛" target="_blank">论坛</a></li>            <li><a href="https://ask.csdn.net/" title="问答" target="_blank">问答</a></li>            <li><a href="https://mall.csdn.net/" title="商城" target="_blank">商城</a></li>            <li class="tb_is1260hide"><a href="https://download.csdn.net/vip_code" title="VIP" target="_blank">VIP</a></li>            <li class="tb_is1320hide"><a href="https://huiyi.csdn.net/" title="活动" target="_blank">活动</a></li>            <li class="tb_is1380hide"><a href="http://job.csdn.net/" title="招聘" target="_blank">招聘</a></li>            <li class="tb_is1440hide"><a href="http://www.iteye.com/" title="ITeye" target="_blank">ITeye</a></li>            <li class="tb_is1440hide"><a href="http://www.csto.com/" title="CSTO" target="_blank">CSTO</a></li>            <li class="show-more">            <a href="javascript:;" class="show-more-a"><svg width="22" height="4" xmlns="http://www.w3.org/2000/svg"><path d="M2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm9 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm9 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4F4F4F" fill-rule="evenodd"></path></svg></a>              <div class="more">                <div class="tb_is1260show"><a href="https://download.csdn.net/vip_code" title="VIP" target="_blank">VIP</a></div>                <div class="tb_is1320show"><a href="https://huiyi.csdn.net/" title="活动" target="_blank">活动</a></div>                <div class="tb_is1380show"><a href="http://job.csdn.net/" title="招聘" target="_blank">招聘</a></div>                <div class="tb_is1440show"><a href="http://www.iteye.com/" title="ITeye" target="_blank">ITeye</a></div>                <div class="tb_is1440show"><a href="http://www.csto.com/" title="CSTO" target="_blank">CSTO</a></div>              </div>            </li>          </ul>          <div class="pull-right login-wrap unlogin">            <ul class="btns">            <li class="toolbar-tracking csdn-tracking-statistics tracking-click" data-mod="popu_369"><a href="https://blog.csdn.net/column/details/pythonpil.html?&amp;page=1#" style="padding:0" target="_blank"></a></li>              <li>                <div class="search_bar csdn-tracking-statistics tracking-click" data-mod="popu_366">                  <input type="text" class="input_search" name="" id="toolber-keyword" placeholder="" autocomplete="off">                  <a href="https://so.csdn.net/so/" target="_blank" class="btn-nobg-noborder btn-search"><svg class="toolbar-icon" aria-hidden="true"><use xlink:href="#sousuo"></use></svg></a>                </div>              </li>              <li class="write-bolg-btn csdn-tracking-statistics tracking-click" data-mod="popu_370"><a class="" href="https://mp.csdn.net/postedit" target="_blank"><svg class="toolbar-icon" aria-hidden="true"><use xlink:href="#xieboke1"></use></svg><span>写博客</span></a></li>              <li class="gitChat"><a class="" href="http://gitbook.cn/new/gitchat/activity?utm_source=csdnblog1" target="_blank"><svg class="toolbar-icon" aria-hidden="true"><use xlink:href="#gitchat"></use></svg><span>发Chat</span></a></li>              <li class="userinfo"><a href="https://passport.csdn.net/account/login">登录</a><span></span><a href="https://passport.csdn.net/account/mobileregister?action=mobileRegister">注册</a></li>              <li class="userLogin">                <div class="loginCenter"><a href="https://my.csdn.net/" target="_blank"><img class="login_img" src="./PIL_files/100x100.jpg"><div class="toolbar-circle"></div></a></div>                <div class="userControl">                  <div><a href="https://blog.csdn.net/" target="_blank">我的博客</a></div>                  <div><a class="xiaoxi" href="http://msg.csdn.net/" target="_blank">消息<span class="toolbar-newsL">(3)</span></a></div>                  <div><a href="https://my.csdn.net/my/account/changepwd" target="_blank">帐号设置</a></div>                  <div><a href="https://bbs.csdn.net/forums/Service" target="_blank">反馈</a></div>                  <div><a href="http://oldblog.csdn.net/home/help.html" target="_blank">帮助</a></div>                  <div><a href="https://passport.csdn.net/account/logout">退出</a></div>                </div>              </li>            </ul>          </div>        </div>    </div>
+         <!-- 广告位开始 -->
+        
+        <!-- 广告位结束 -->
+      <script id="toolbar-tpl-scriptId" src="./PIL_files/content_toolbar.js" type="text/javascript" domain="http://blog.csdn.net"></script><script class="toolbar-s" type="text/javascript" src="./PIL_files/iconfont.js"></script>
+
+      <link rel="stylesheet" href="./PIL_files/content_toolbar.css">
+      
+
+      
+
+<div role="banner" class="blog-nav">
+	    <div class="container">
+		    <div role="navigation" class="navbar-collapse">
+			    <ul class="navbar-nav">
+				    <li><a href="https://blog.csdn.net/" title="CSDN博客频道首页">首页</a></li>
+				    <li class="active"> <a href="https://blog.csdn.net/column.html">博客专栏</a></li>
+                 
+				    <li><a href="https://blog.csdn.net/experts.html">博客专家</a></li>
+				   
+                     
+                      <li><a href="https://blog.csdn.net/PK.html">观点</a></li>
+				    <li><a href="https://blog.csdn.net/ranking.html">排行榜</a></li>
+			      
+                  
+                    <li><a href="http://mp.blog.csdn.net/" class="rss" target="_blank">我的博客</a></li>
+			    </ul>
+                <a href="https://blog.csdn.net/home/help.html" class="float-r"><i class="fa fa-question-circle"></i>帮助</a>
+                <a href="https://blog.csdn.net/rss.html?type=Column&amp;channel=" class="rss float-r"><i class="fa fa-rss"></i>订阅</a>
+                
+		    </div>
+	    </div>
+</div>
+
+<!--
+<div style="margin:0 0 10px 0;">
+<iframe id="frm_ad_top2" frameborder="0" scrolling="no" style="width:100%;height:0px;"></iframe>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#frm_ad_top2').attr('src', "//static-blog.csdn.net/ads/home_top2.html").load(function () {
+            this.style.height = '92px';
+        });
+    });
+</script>
+-->      
+
+        
+
+   <link rel="stylesheet" href="./PIL_files/blog_column.css">
+
+
+  
+      <!--面包屑-->
+    <div class="col_location"><a href="https://blog.csdn.net/column.html" class="loca_a">博客专栏 &nbsp;</a><em>&gt; &nbsp;</em><a href="https://blog.csdn.net/code/column.html" class="loca_a">编程语言</a><em> &nbsp; &gt; &nbsp;</em><span>Python图像处理库PIL从入门到精通</span></div>
+    
+   <div style="background-image:url(http://img.blog.csdn.net/20160227053336601)" class="column_banner">
+      <div class="column_ba_c"></div>
+      <div class="column_ba_con">
+        <div class="coumn_ba_t">
+          <label>
+            <!--JiaThis Button BEGIN-->
+            <div class="jiathis_style_16x16"><em>分享到：</em><a class="jiathis_button_tsina"><i class="fa fa-weibo"></i></a><a class="jiathis_button_weixin"><i class="fa fa-weixin"></i></a></div>
+          </label>
+        </div>
+        <script type="text/javascript" src="./PIL_files/jia.js" charset="utf-8"></script>
+        <h3 class="ba_t"><a href="https://blog.csdn.net/column/details/pythonpil.html">Python图像处理库PIL从入门到精通</a></h3>
+        <div class="ba_c">
+          <label><a href="http://blog.csdn.net/icamera0" target="_blank"><img src="./PIL_files/2_icamera0.jpg" alt="img"></a> &nbsp;&nbsp;<span><a style="color:white" href="http://blog.csdn.net/icamera0" tip="username" target="_blank">icamera0</a></span></label>
+          <label><i class="fa fa-eye"></i><span>265770</span></label>
+        </div>
+        <p class="ba_con">通过详细介绍python图像处理库PIL的各个模块及其属性，方法和函数，让读者对PIL有全面而深入地理解。同时，对于PIL各个方法和函数给出了应用实例及大量处理图像，方便初学者能够快速入门，给读者最直观的认识，提升读者对python图像处理的兴趣和技能。</p>
+
+        <div class="ba_focus">
+          <span id="add_attention" class="col_focus" alias="pythonpil">
+            <i class="fa fa-check"></i>
+                 <em>关注</em>
+         </span></div>
+                    
+        <div class="ba_statistics"><span>
+170                                   </span><em>已关注</em></div>
+      </div>
+    </div>
+    <div class="column_detail clearfix">
+      <div class="blog_home_main clearfix">
+        <div class="blog_l fl">
+          <!--统计博文-->
+          <div class="statistics_t">共<span>23</span>篇博文</div>
+          <!--博文列表-->
+          <ul class="detail_list">
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50985165" target="_blank">Python图像处理库PIL中快速傅里叶变换FFT的实现（一）</a></h4>
+                  <p class="detail_p">离散傅里叶变换(discrete Fourier transform) 傅里叶分析方法是信号分析的最基本方法，傅里叶变换是傅里叶分析的核心，通过它把信号从时间域变换到频率域，进而研究信号的频谱结构和变...</p>
+                  <div class="detail_b"><span>2016-03-26 07:21</span>
+                    <div class="fa fa-eye"></div><em>10132</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50843196" target="_blank">Python图像处理库PIL中图像格式转换（二）</a></h4>
+                  <p class="detail_p">二、其他不同模式转换为“RGB”模式
+模式“RGB”为24位彩色图像，它的每个像素用24个bit表示，分别表示红色、绿色和蓝色三个通道。
+在PIL中，对于彩色图像，open后都会转换为“RGB”模...</p>
+                  <div class="detail_b"><span>2016-03-10 08:24</span>
+                    <div class="fa fa-eye"></div><em>10653</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50843172" target="_blank">Python图像处理库PIL中图像格式转换（一）</a></h4>
+                  <p class="detail_p">在数字图像处理中，针对不同的图像格式有其特定的处理算法。所以，在做图像处理之前，我们需要考虑清楚自己要基于哪种格式的图像进行算法设计及其实现。本文基于这个需求，使用python中的图像处理库PIL来实...</p>
+                  <div class="detail_b"><span>2016-03-10 08:16</span>
+                    <div class="fa fa-eye"></div><em>44218</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50811855" target="_blank">Python图像处理库PIL的ImageStat模块介绍</a></h4>
+                  <p class="detail_p">ImageStat模块用于计算整个图像或者图像的一个区域的统计数据。
+一、ImageStat模块的函数
+1、&nbsp; 
+Stat
+定义1：ImageStat.Stat(image)
+⇒ Stat insta...</p>
+                  <div class="detail_b"><span>2016-03-06 07:40</span>
+                    <div class="fa fa-eye"></div><em>4043</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50811037" target="_blank">Python图像处理库PIL的ImageSequence模块介绍</a></h4>
+                  <p class="detail_p">ImageSequence模块包含了一个wrapper类，它可以让用户迭代访问图形序列中每一帧图像。
+一、ImageSequence模块的函数
+1、&nbsp; 
+Iterator
+定义：ImageSe...</p>
+                  <div class="detail_b"><span>2016-03-05 22:10</span>
+                    <div class="fa fa-eye"></div><em>2502</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50807121" target="_blank">Python图像处理库PIL的ImagePath模块介绍</a></h4>
+                  <p class="detail_p">ImagePath模块被用于存储和操作二维向量数据。Path对象会被传递到ImageDraw模块中。
+一、ImagePath模块的函数
+1、&nbsp; 
+Path
+定义：ImagePath.Path(...</p>
+                  <div class="detail_b"><span>2016-03-05 07:52</span>
+                    <div class="fa fa-eye"></div><em>2216</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50785776" target="_blank">Python图像处理库PIL的ImageOps模块介绍</a></h4>
+                  <p class="detail_p">（Newin 1.1.3）ImageOps模块包含了一些“ready-made”的图像处理操作。这个模块somewhatexperimental，大多数操作只工作在L和RGB图像上。
+一、ImageO...</p>
+                  <div class="detail_b"><span>2016-03-04 06:15</span>
+                    <div class="fa fa-eye"></div><em>4916</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50763010" target="_blank">Python图像处理库PIL的ImageGrab模块介绍</a></h4>
+                  <p class="detail_p">ImageGrab模块用于将当前屏幕的内容或者剪贴板上的内容拷贝到PIL图像内存。
+当前版本只支持windows系统。
+一、ImageGrab模块的函数
+1、&nbsp; 
+Grab
+定义：Image...</p>
+                  <div class="detail_b"><span>2016-02-29 08:28</span>
+                    <div class="fa fa-eye"></div><em>11456</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50762050" target="_blank">Python图像处理库PIL的ImageFont模块介绍</a></h4>
+                  <p class="detail_p">ImageFont模块定义了相同名称的类，即ImageFont类。这个类的实例存储bitmap字体，用于ImageDraw类的text()方法。
+PIL使用自己的字体文件格式存储bitmap字体。用...</p>
+                  <div class="detail_b"><span>2016-02-28 22:04</span>
+                    <div class="fa fa-eye"></div><em>10414</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50757042" target="_blank">Python图像处理库PIL的ImageFile模块介绍</a></h4>
+                  <p class="detail_p">ImageFile模块为图像的打开和保存提供了一些函数。
+另外，它还提供了一个逐块解码图像的Parser类。这个类实现了与标准sgmllib和xmllib模块一样的接口。
+一、ImageFile模块的...</p>
+                  <div class="detail_b"><span>2016-02-27 21:23</span>
+                    <div class="fa fa-eye"></div><em>2237</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50753705" target="_blank">Python图像处理库PIL的ImageEnhance模块介绍</a></h4>
+                  <p class="detail_p">ImageEnhance模块提供了一些用于图像增强的类。
+一、ImageEnhance模块的接口
+所有的增强类都实现了一个通用的接口，包括一个方法：
+enhancer.enhance(facto...</p>
+                  <div class="detail_b"><span>2016-02-27 06:51</span>
+                    <div class="fa fa-eye"></div><em>8495</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50747084" target="_blank">Python图像处理库PIL的ImageDraw模块介绍</a></h4>
+                  <p class="detail_p">ImageDraw模块提供了图像对象的简单2D绘制。用户可以使用这个模块创建新的图像，注释或润饰已存在图像，为web应用实时产生各种图形。
+PIL中一个更高级绘图库见The aggdraw Modul...</p>
+                  <div class="detail_b"><span>2016-02-26 08:11</span>
+                    <div class="fa fa-eye"></div><em>21908</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50727599" target="_blank">Python图像处理库PIL的ImageChops模块介绍</a></h4>
+                  <p class="detail_p">ImageChops模块包含一些算术图形操作，叫做channel operations（“chops”）。这些操作可用于诸多目的，比如图像特效，图像组合，算法绘图等等。
+大多数通道操作只用于8位图像...</p>
+                  <div class="detail_b"><span>2016-02-24 06:53</span>
+                    <div class="fa fa-eye"></div><em>4014</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50708888" target="_blank">Python图像处理库PIL的ImageFilter模块介绍</a></h4>
+                  <p class="detail_p">Python图像处理库PIL的ImageFilter模块介绍
+ImageFilter模块提供了滤波器相关定义；这些滤波器主要用于Image类的filter()方法。
+一、ImageFilter模块所支...</p>
+                  <div class="detail_b"><span>2016-02-21 18:06</span>
+                    <div class="fa fa-eye"></div><em>13524</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50707649" target="_blank">Python图像处理库PIL的ImageColor模块介绍</a></h4>
+                  <p class="detail_p">ImageColor模块包括颜色表格和从CSS3样式颜色转化为RGB元组的转换器。除了别的，这个模块多用于Image.new函数和ImageDraw模块。
+一、ImageColor模块支持的字符串
+...</p>
+                  <div class="detail_b"><span>2016-02-21 11:35</span>
+                    <div class="fa fa-eye"></div><em>2758</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50706666" target="_blank">Python图像处理库PIL的Image模块介绍（五）</a></h4>
+                  <p class="detail_p">26、&nbsp; 
+Seek
+定义：im.seek(frame)
+含义：在给定的文件序列中查找指定的帧。如果查找超越了序列的末尾，则产生一个EOFError异常。当文件序列被打开时，PIL库自动指定到第...</p>
+                  <div class="detail_b"><span>2016-02-20 23:20</span>
+                    <div class="fa fa-eye"></div><em>13723</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50706615" target="_blank">Python图像处理库PIL的Image模块介绍（四）</a></h4>
+                  <p class="detail_p">（Image模块方法16-25）
+16、&nbsp; 
+Paste
+定义1：im.paste(image,box)
+含义1：将一张图粘贴到另一张图像上。变量box或者是一个给定左上角的2元组，或者是定义...</p>
+                  <div class="detail_b"><span>2016-02-20 23:13</span>
+                    <div class="fa fa-eye"></div><em>24737</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50683106" target="_blank">Python图像处理库PIL的Image模块介绍（三）</a></h4>
+                  <p class="detail_p">三、Image类的方法
+除非另作说明，Image类的所有方法都将返回一个Image类的新实例，这个实例对应于结果图像。
+1、&nbsp; 
+Convert
+定义1：im.convert(mode)⇒ i...</p>
+                  <div class="detail_b"><span>2016-02-17 23:12</span>
+                    <div class="fa fa-eye"></div><em>21515</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50666815" target="_blank">Python图像处理库PIL的Image模块介绍（二）</a></h4>
+                  <p class="detail_p">二、Image类的函数
+1、&nbsp; 
+New
+定义：Image.new(mode,size)
+⇒ image
+&nbsp; Image.new(mode, size, color)
+⇒ image
+含...</p>
+                  <div class="detail_b"><span>2016-02-15 09:36</span>
+                    <div class="fa fa-eye"></div><em>8759</em>
+                  </div>
+                </li>
+                <li>
+                  <h4><a href="http://blog.csdn.net/icamera0/article/details/50654910" target="_blank">Python图像处理库PIL的Image模块介绍（一）</a></h4>
+                  <p class="detail_p">Image模块是PIL中最重要的模块，它有一个类叫做image，与模块名称相同。Image类有很多函数、方法及属性，接下来将依次对image类的属性、函数和方法进行介绍。
+一、Image类的属性
+...</p>
+                  <div class="detail_b"><span>2016-02-12 18:05</span>
+                    <div class="fa fa-eye"></div><em>17887</em>
+                  </div>
+                </li>
+          </ul>
+          <!--分页-->
+          <!-- page 开始-->
+          <style>
+                .page_nav {
+	                    TEXT-ALIGN: center;
+	                    PADDING-BOTTOM: 15px;
+	                    PADDING-LEFT: 0px;
+	                    PADDING-RIGHT: 0px;
+	                    FONT: 12px/24px Arial;
+	                    COLOR: #666;
+	                    CLEAR: both;
+	                    PADDING-TOP: 15px;                       
+                    }
+                .page_nav A {
+	                BORDER-BOTTOM: #dbe5ee 1px solid; BORDER-LEFT: #dbe5ee 1px solid; PADDING-BOTTOM: 0px; MARGIN: 0px 2px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; DISPLAY: inline-block; FONT: 12px/22px Arial, Helvetica, sans-serif; BACKGROUND: #fff; HEIGHT: 22px; COLOR: #333; BORDER-TOP: #dbe5ee 1px solid; CURSOR: pointer; BORDER-RIGHT: #dbe5ee 1px solid; PADDING-TOP: 0px; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; -khtml-border-radius: 2px
+                }
+                .page_nav STRONG {
+	                BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; PADDING-BOTTOM: 0px; LINE-HEIGHT: 24px; MARGIN: 0px 3px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; DISPLAY: inline-block; BACKGROUND: #c00; HEIGHT: 24px; COLOR: #fff; BORDER-TOP: medium none; FONT-WEIGHT: normal; BORDER-RIGHT: medium none; TEXT-DECORATION: none; PADDING-TOP: 0px; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; -khtml-border-radius: 2px
+                }
+                .page_nav A:hover {
+	                BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; LINE-HEIGHT: 24px; MARGIN: 0px 3px; BACKGROUND: #c00; HEIGHT: 24px; COLOR: #fff; BORDER-TOP: medium none; BORDER-RIGHT: medium none; TEXT-DECORATION: none
+                }
+                .page_nav A.select {
+	                CURSOR: default
+                }                
+        </style>
+
+        <div class="page_nav">
+    <span> 23条  共2页</span><strong>1</strong> <a href="https://blog.csdn.net/column/details/pythonpil.html?&amp;page=2">2</a> <a href="https://blog.csdn.net/column/details/pythonpil.html?&amp;page=2">下一页</a> <a href="https://blog.csdn.net/column/details/pythonpil.html?&amp;page=2">尾页</a> 
+</div>
+
+
+          <!-- page 结束-->
+        </div>
+        <div class="blog_detail_r fr">
+          <!--他的其它专栏-->
+ 
+                <div class="categ">
+                  <div class="mod_title">
+                    <div class="border_b"></div>
+                    <h4 class="mod_title_t">
+                      <label>其它专栏</label>
+                    </h4>
+                  </div>
+                  <div class="hot_column">
+                              <dl class="column_list">
+                                  <dt><a href="https://blog.csdn.net/column/details/17539.html" target="_blank" style="background-image:url(http://img.blog.csdn.net/20170925074403656);"></a></dt>
+                                  <dd><a href="https://blog.csdn.net/column/details/17539.html" target="_blank" class="expert_t">写程序学ML之《机器学习实战》</a>
+                                    <div class="hot_intro"><i class="fa fa-file-text-o"></i><span class="hot_intro_num">12</span><i class="fa fa-eye"></i><span>7051</span></div>
+                                  </dd>
+                                </dl>
+                  </div>
+                </div>
+
+          <!--热门专栏-->
+          
+
+<div class="categ">
+          <div class="mod_title">
+            <div class="border_b"></div>
+            <h4 class="mod_title_t">
+              <label>热门专栏</label>
+            </h4>
+          </div>
+          <div class="hot_column">
+                  <dl class="column_list">
+                      <dt class="tracking-ad" data-mod="popu_280"><a href="https://blog.csdn.net/column/details/17486.html" target="_blank" style="background-image:url(http://img.blog.csdn.net/20170921110458603);"></a></dt>
+                      <dd class="tracking-ad" data-mod="popu_280"><a href="https://blog.csdn.net/column/details/17486.html" target="_blank" class="expert_t">PHPWAMP官方使用文档（Windows篇）</a>
+                        <div class="hot_intro"><i class="fa fa-file-text-o"></i><span class="hot_intro_num">27</span><i class="fa fa-eye"></i><span>12912225</span></div>
+                      </dd>
+                    </dl>
+                  <dl class="column_list">
+                      <dt class="tracking-ad" data-mod="popu_280"><a href="https://blog.csdn.net/column/details/morewindows-program.html" target="_blank" style="background-image:url(http://img.blog.csdn.net/20151123175037052);"></a></dt>
+                      <dd class="tracking-ad" data-mod="popu_280"><a href="https://blog.csdn.net/column/details/morewindows-program.html" target="_blank" class="expert_t">Windows C/C++/C# 编程</a>
+                        <div class="hot_intro"><i class="fa fa-file-text-o"></i><span class="hot_intro_num">130</span><i class="fa fa-eye"></i><span>7295618</span></div>
+                      </dd>
+                    </dl>
+                  <dl class="column_list">
+                      <dt class="tracking-ad" data-mod="popu_280"><a href="https://blog.csdn.net/column/details/ffmpeg-devel.html" target="_blank" style="background-image:url(http://img.blog.csdn.net/20151123175857395);"></a></dt>
+                      <dd class="tracking-ad" data-mod="popu_280"><a href="https://blog.csdn.net/column/details/ffmpeg-devel.html" target="_blank" class="expert_t">FFmpeg</a>
+                        <div class="hot_intro"><i class="fa fa-file-text-o"></i><span class="hot_intro_num">135</span><i class="fa fa-eye"></i><span>4868778</span></div>
+                      </dd>
+                    </dl>
+                  <dl class="column_list">
+                      <dt class="tracking-ad" data-mod="popu_280"><a href="https://blog.csdn.net/column/details/Dijkstra.html" target="_blank" style="background-image:url(http://img.blog.csdn.net/20151123174936630);"></a></dt>
+                      <dd class="tracking-ad" data-mod="popu_280"><a href="https://blog.csdn.net/column/details/Dijkstra.html" target="_blank" class="expert_t">经典算法研究</a>
+                        <div class="hot_intro"><i class="fa fa-file-text-o"></i><span class="hot_intro_num">32</span><i class="fa fa-eye"></i><span>3611403</span></div>
+                      </dd>
+                    </dl>
+                  <dl class="column_list">
+                      <dt class="tracking-ad" data-mod="popu_280"><a href="https://blog.csdn.net/column/details/ms100.html" target="_blank" style="background-image:url(http://img.blog.csdn.net/20151123174955864);"></a></dt>
+                      <dd class="tracking-ad" data-mod="popu_280"><a href="https://blog.csdn.net/column/details/ms100.html" target="_blank" class="expert_t">微软面试100题系列</a>
+                        <div class="hot_intro"><i class="fa fa-file-text-o"></i><span class="hot_intro_num">18</span><i class="fa fa-eye"></i><span>3402599</span></div>
+                      </dd>
+                    </dl>
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+
+    
+
+    <div class="blog_r_nav">
+      <div class="write_blog"><img src="./PIL_files/blog_move_big.png" alt="img"><a href="https://blog.csdn.net/import/Apply.html" class="move_blog">博客搬家</a></div>
+      <div class="write_blog"><img src="./PIL_files/write_blog.png" alt="img"><a href="https://mp.csdn.net/postedit">撰写博客</a></div>
+      <div class="write_blog"><img src="./PIL_files/gitchatbig.png" alt="img"><a href="http://gitbook.cn/new/gitchat/activity?utm_source=csdnblog1" target="_blank">发布 Chat</a></div>
+      <div class="write_blog"><img src="./PIL_files/expert_apply.png" alt="img"><a href="https://blog.csdn.net/experts/rule.html">专家申请</a></div>
+      <div class="write_blog"><img src="./PIL_files/opinion.png" alt="img"><a href="https://bbs.csdn.net/topics/391959736" target="_blank">意见反馈</a></div>
+      <div id="backTop" class="write_blog" style="display: block;"><img src="./PIL_files/back_top.png" alt="img"><a href="javascript:;">返回顶部</a></div>
+</div>
+
+    <script type="text/javascript" src="./PIL_files/blog_column.js"></script>
+
+
+    <script type="text/javascript" src="./PIL_files/blog_index.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+      <script language="javascript" type="text/javascript" src="./PIL_files/async-1.0.1.js"></script>
+
+       <script id="noticeScript" type="text/javascript" charset="utf-8" btnid="header_notice_num" wrapid="note1" count="5" subcount="5" src="./PIL_files/notify.js"></script><input type="hidden" id="aa_g_data_ids">  
+    <!--script( type="text/javascript" src="//csdnimg.cn/pubfooter/js/publib_footer-1.0.2.js" )-->
+    <!--script( type="text/javascript" src="//csdnimg.cn/public/common/toolbar/js/toolbar.js" )-->
+    <!-- <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="//csdnimg.cn/public/common/toolbar/js/toolbar.js"></script> -->
+       <style type="text/css">
+          .pub_fo {
+          position:static;
+          }
+      </style>   
+
+      
+
+<script type="text/javascript" src="./PIL_files/cnick.js"></script>
+
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=25 border=0 width=0 height=0>");</script><img src="./PIL_files/pv.aspx" border="0" width="0" height="0">
+<script type="text/javascript">
+    document.write('<script type="text/javascript" src="//csdnimg.cn/pubfooter/js/publib_footer-1.0.2.js?' + Math.floor(new Date() / 120000).toString(36) + '="></' + 'script>');
+</script><script type="text/javascript" src="./PIL_files/publib_footer-1.0.2.js"></script><link rel="stylesheet" type="text/css" href="./PIL_files/pub_footer_2014.css"><div class="pub_fo"><div id="pub_footerall" class="pub_footer_new"><dl><dt></dt> <dd class="foot_sub_menu"><a href="http://www.csdn.net/company/about.html" target="_blank">公司简介</a><span>|</span><a href="http://www.csdn.net/company/recruit.html" target="_blank">招贤纳士</a><span>|</span><a href="http://www.csdn.net/company/marketing.html" target="_blank">广告服务</a><span>|</span><a href="http://www.csdn.net/company/contact.html" target="_blank">联系方式</a><span>|</span><a href="http://www.csdn.net/company/statement.html" target="_blank">版权声明</a><span>|</span><a href="http://www.csdn.net/company/layer.html" target="_blank">法律顾问</a><span>|</span><a href="mailto:webmaster@csdn.net">问题报告</a><span>|</span><a target="_blank" href="http://www.csdn.net/friendlink.html">合作伙伴</a><span>|</span><a href="http://bbs.csdn.net/forums/Service" target="_blank">论坛反馈</a></dd><dd class="foot_contact"><a href="javascript:void(0)" target="_blank" class="qq qqcustomer_s">网站客服</a><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2251809102&amp;site=qq&amp;menu=yes" target="_blank" class="qq">杂志客服</a><a href="http://e.weibo.com/csdnsupport/profile" target="_blank" class="weibo">微博客服</a><a href="mailto:webmaster@csdn.net" class="email" title="联系邮箱">webmaster@csdn.net</a><span class="phone" title="服务热线">400-660-0108</span><span class="interval">|</span><span>北京创新乐知信息技术有限公司 版权所有</span><span class="interval">|</span><span>江苏知之为计算机有限公司</span><span class="interval">|</span><span>江苏乐知网络技术有限公司</span></dd><dd class="foot_copyright"><span>京&nbsp;ICP&nbsp;证&nbsp;09002463&nbsp;号</span><span class="interval">|</span><span>Copyright © 1999-2018, CSDN.NET, All Rights Reserved&nbsp;</span><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202001032100010" target="_blank"><img src="./PIL_files/gongshang_logos.gif" alt="GongshangLogo" title=""></a></dd></dl></div></div><script id="noticeScript" type="text/javascript" btnid="header_notice_num" wrapid="note1" count="5" subcount="5" src="./PIL_files/notify(1).js"></script><input type="hidden" id="aa_g_data_ids">
+
+
+
+      
+      <div style="width:100%;height:0;overflow:visible;position:fixed;z-index:9999"> 
+        <ins data-revive-zoneid="150" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57" id="revive-0-0"></ins> 
+        <ins data-revive-zoneid="151" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57" id="revive-0-1"></ins> 
+        <ins data-revive-zoneid="152" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57" id="revive-0-2"></ins>
+      </div>
+      <script src="./PIL_files/main-1.0.2(1).js"></script>
+  
+ 
+<div style="position:fixed; top:0; left:0; overflow:hidden;"><input style="position:absolute; left:-300px;" type="text" value="" id="focus_retriever" readonly="true"></div><div style="position:fixed; top:0; left:0; overflow:hidden;"><input style="position:absolute; left:-300px;" type="text" value="" id="focus_retriever" readonly="true"></div><iframe class="bdSug_sd" style="display: none; position: absolute; border-width: 0px;" src="./PIL_files/saved_resource.html"></iframe><div id="bdSug_1529762405828" class="bdSug_wpr" style="display: none;"></div></body></html>

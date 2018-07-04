@@ -1,0 +1,1 @@
+document.writeln("<a href=\'http://www.magedu.com/kczx/linuxyw.html?linuxgongshe_banner\' target=\'_blank\'><img src=\'/linuxfile/mg.png\' alt=\'\' width=\'600\' height=\'60\' /></a>");
